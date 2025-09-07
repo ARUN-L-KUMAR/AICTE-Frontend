@@ -4,8 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="container">
+            <h1><i class="fas fa-brain"></i> Online Quiz</h1>
+            <p>Test your knowledge with our interactive quiz!</p>
+            <div class="quiz-options">
+                <div class="option-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="9">General Knowledge</option>
+                        <option value="21">Sports</option>
+                        <option value="23">History</option>
+                        <option value="18">Science: Computers</option>
+                        <option value="17">Science & Nature</option>
+                        <option value="11">Entertainment: Film</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="questionCount">Number of Questions:</label>
+                    <select id="questionCount">
+                        <option value="5">5 Questions</option>
+                        <option value="10" selected>10 Questions</option>
+                        <option value="15">15 Questions</option>
+                    </select>
+                </div>
+            </div>
+            <button id="start-btn" class="btn btn-primary">
+                <i class="fas fa-play"></i> Start Quiz
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <div class="container">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <p>Loading questions...</p>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+        <div class="container">
+            <!-- Quiz Header -->
+            <div class="quiz-header">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="question-counter">1 / 10</span>
+                </div>
+                <div class="quiz-stats">
+                    <div class="stat">
+                        <i class="fas fa-trophy"></i>
+                        <span>Score: <span id="score">0</span></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span id="timer">30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Container -->
+            <div id="question-container">
+                <div class="question-card">
+                    <h2 id="question-text">Loading question...</h2>
+                    <div id="options-container" class="options-container">
+                        <!-- Options will be dynamically generated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback -->
+            <div id="feedback" class="feedback hidden">
+                <div class="feedback-content">
+                    <div class="feedback-icon">
+                        <i id="feedback-icon" class="fas"></i>
+                    </div>
+                    <p id="feedback-text"></p>
+                    <button id="next-btn" class="btn btn-secondary">
+                        Next Question <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="container">
+            <div class="results-card">
+                <div class="results-header">
+                    <div id="results-icon" class="results-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2 id="results-title">Quiz Complete!</h2>
+                </div>
+                
+                <div class="results-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="final-score">0</div>
+                        <div class="stat-label">Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="final-percentage">0%</div>
+                        <div class="stat-label">Percentage</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="correct-answers">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-questions">0</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                </div>
+
+                <div class="results-message">
+                    <p id="performance-message">Great job!</p>
+                </div>
+
+                <div class="results-actions">
+                    <button id="restart-btn" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                    <button id="share-btn" class="btn btn-secondary">
+                        <i class="fas fa-share"></i> Share Results
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
