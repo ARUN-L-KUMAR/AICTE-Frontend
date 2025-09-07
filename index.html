@@ -4,8 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-graduation-cap"></i> Smart Study Planner</h1>
+            <p>Organize your studies efficiently</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <button class="nav-btn active" data-view="tasks">
+                <i class="fas fa-tasks"></i> Tasks
+            </button>
+            <button class="nav-btn" data-view="calendar">
+                <i class="fas fa-calendar-alt"></i> Calendar
+            </button>
+            <button class="nav-btn" data-view="statistics">
+                <i class="fas fa-chart-bar"></i> Stats
+            </button>
+        </nav>
+
+        <!-- Task Form -->
+        <section class="task-form-section">
+            <form id="taskForm" class="task-form">
+                <h2 id="formTitle">Add New Task</h2>
+                
+                <div class="form-group">
+                    <label for="taskTitle">Task Title *</label>
+                    <input type="text" id="taskTitle" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea id="taskDescription" name="description" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskSubject">Subject *</label>
+                        <select id="taskSubject" name="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Science">Science</option>
+                            <option value="English">English</option>
+                            <option value="History">History</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskDueDate">Due Date *</label>
+                        <input type="datetime-local" id="taskDueDate" name="dueDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority" name="priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                    <button type="button" id="cancelEdit" class="btn btn-secondary" style="display: none;">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Views Container -->
+        <div class="views-container">
+            <!-- Tasks View -->
+            <section id="tasksView" class="view active">
+                <!-- Filter and Search -->
+                <div class="controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchTasks" placeholder="Search tasks...">
+                    </div>
+                    
+                    <div class="filters">
+                        <select id="subjectFilter">
+                            <option value="">All Subjects</option>
+                        </select>
+                        
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        
+                        <select id="priorityFilter">
+                            <option value="">All Priorities</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tasks List -->
+                <div class="tasks-container">
+                    <div id="tasksList" class="tasks-list">
+                        <!-- Tasks will be dynamically loaded here -->
+                    </div>
+                    <div id="emptyState" class="empty-state">
+                        <i class="fas fa-tasks"></i>
+                        <h3>No tasks yet!</h3>
+                        <p>Add your first task to get started with your study planning.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar View -->
+            <section id="calendarView" class="view">
+                <div class="calendar-header">
+                    <button id="prevMonth" class="btn btn-secondary">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2 id="currentMonth"></h2>
+                    <button id="nextMonth" class="btn btn-secondary">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="calendar" class="calendar-grid">
+                    <!-- Calendar will be dynamically generated -->
+                </div>
+                <div class="calendar-legend">
+                    <div class="legend-item">
+                        <div class="legend-color high"></div>
+                        <span>High Priority</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color medium"></div>
+                        <span>Medium Priority</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color low"></div>
+                        <span>Low Priority</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics View -->
+            <section id="statisticsView" class="view">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalTasks">0</h3>
+                            <p>Total Tasks</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon completed">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="completedTasks">0</h3>
+                            <p>Completed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="pendingTasks">0</h3>
+                            <p>Pending</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon overdue">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="overdueTasks">0</h3>
+                            <p>Overdue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <h3>Completion Progress</h3>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <p id="progressText">0% Complete</p>
+                </div>
+
+                <div class="subject-breakdown">
+                    <h3>Tasks by Subject</h3>
+                    <div id="subjectStats" class="subject-stats">
+                        <!-- Subject statistics will be generated here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Task Detail Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Task Details</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Task details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications" class="notifications-container">
+        <!-- Notifications will appear here -->
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
