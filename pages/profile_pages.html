@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - CineVault</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcinevault6865back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary font-source-sans">
+    <!-- Navigation Header -->
+    <header class="bg-primary border-b border-subtle sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        <span class="text-xl font-inter font-bold text-accent">CineVault</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="browse.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Browse</a>
+                        <a href="community_hub.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Community</a>
+                        <a href="user_dashboard.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Dashboard</a>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8 hidden lg:block">
+                    <div class="relative">
+                        <input type="text" placeholder="Search movies, actors, directors..." class="w-full bg-surface border border-subtle rounded-lg px-4 py-2 pl-10 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent transition-colors duration-200" />
+                        <svg class="w-5 h-5 text-text-secondary absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-text-secondary hover:text-text-primary transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"/>
+                        </svg>
+                    </button>
+                    <a href="profile_pages.html" class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary font-medium text-sm">
+                        JD
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Profile Header Section -->
+    <section class="py-12 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+                <!-- Profile Avatar & Basic Info -->
+                <div class="flex flex-col items-center lg:items-start">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="John Doe Profile" class="w-32 h-32 rounded-full object-cover border-4 border-accent" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=1'; this.onerror=null;" />
+                        <div class="absolute -bottom-2 -right-2 bg-accent rounded-full p-2">
+                            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <button class="mt-4 bg-accent text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-200">
+                        Edit Profile
+                    </button>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="flex-1">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                        <div>
+                            <h1 class="text-3xl font-playfair font-bold text-text-primary mb-2">John Doe</h1>
+                            <p class="text-text-secondary mb-4">Passionate film enthusiast and verified reviewer since 2022. Love discovering hidden gems and sharing authentic movie experiences.</p>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <span class="flex items-center text-accent">
+                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    Verified Reviewer
+                                </span>
+                                <span class="text-text-secondary">Member since Oct 2022</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Privacy Controls -->
+                        <div class="mt-4 lg:mt-0">
+                            <button class="text-text-secondary hover:text-text-primary transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Profile Statistics -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="text-2xl font-inter font-bold text-accent mb-1">247</div>
+                            <div class="text-text-secondary text-sm">Movies Rated</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-inter font-bold text-accent mb-1">89</div>
+                            <div class="text-text-secondary text-sm">Reviews Written</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-inter font-bold text-accent mb-1">1.2K</div>
+                            <div class="text-text-secondary text-sm">Followers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-inter font-bold text-accent mb-1">456</div>
+                            <div class="text-text-secondary text-sm">Following</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Badges -->
+    <section class="py-8 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-playfair font-bold text-text-primary mb-6">Achievements</h2>
+            <div class="flex flex-wrap gap-4">
+                <div class="flex items-center bg-surface rounded-lg px-4 py-2 border border-accent">
+                    <svg class="w-5 h-5 text-accent mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span class="text-accent font-medium text-sm">Top Reviewer</span>
+                </div>
+                <div class="flex items-center bg-surface rounded-lg px-4 py-2">
+                    <svg class="w-5 h-5 text-text-secondary mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-text-secondary font-medium text-sm">100 Reviews</span>
+                </div>
+                <div class="flex items-center bg-surface rounded-lg px-4 py-2">
+                    <svg class="w-5 h-5 text-text-secondary mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <span class="text-text-secondary font-medium text-sm">Community Builder</span>
+                </div>
+                <div class="flex items-center bg-surface rounded-lg px-4 py-2">
+                    <svg class="w-5 h-5 text-text-secondary mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    <span class="text-text-secondary font-medium text-sm">Taste Maker</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Tabs -->
+    <section class="py-8 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Tab Navigation -->
+            <div class="border-b border-subtle mb-8">
+                <nav class="flex space-x-8">
+                    <button class="tab-button active py-2 px-1 border-b-2 border-accent text-accent font-medium text-sm" data-tab="reviews">
+                        Reviews (89)
+                    </button>
+                    <button class="tab-button py-2 px-1 border-b-2 border-transparent text-text-secondary hover:text-text-primary font-medium text-sm transition-colors duration-200" data-tab="watchlists">
+                        Watchlists (5)
+                    </button>
+                    <button class="tab-button py-2 px-1 border-b-2 border-transparent text-text-secondary hover:text-text-primary font-medium text-sm transition-colors duration-200" data-tab="activity">
+                        Activity
+                    </button>
+                    <button class="tab-button py-2 px-1 border-b-2 border-transparent text-text-secondary hover:text-text-primary font-medium text-sm transition-colors duration-200" data-tab="stats">
+                        Statistics
+                    </button>
+                    <button class="tab-button py-2 px-1 border-b-2 border-transparent text-text-secondary hover:text-text-primary font-medium text-sm transition-colors duration-200" data-tab="social">
+                        Social
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-content">
+                <!-- Reviews Tab -->
+                <div id="reviews-tab" class="tab-content">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Featured Review -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=80&auto=format&fit=crop" alt="The Midnight Hour" class="w-16 h-24 object-cover rounded mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=80&h=120&dpr=1'; this.onerror=null;" />
+                                    <div>
+                                        <h3 class="font-inter font-semibold text-text-primary mb-1">The Midnight Hour</h3>
+                                        <div class="flex items-center mb-2">
+                                            <span class="text-accent text-lg">★★★★★</span>
+                                            <span class="text-text-secondary text-sm ml-2">5.0</span>
+                                        </div>
+                                        <span class="text-text-secondary text-sm">Oct 1, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-accent text-primary text-xs px-2 py-1 rounded">Featured</span>
+                                    <button class="text-text-secondary hover:text-accent transition-colors duration-200">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary mb-4 line-clamp-3">
+                                "Absolutely phenomenal cinematography and storytelling. This film will stay with you long after the credits roll. The director's vision is executed flawlessly, creating an atmosphere that's both haunting and beautiful. A masterpiece of modern cinema that deserves all the recognition it's getting."
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M14 9V5a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zM10 5a1 1 0 0 1 2 0v4h-2V5z"/>
+                                        </svg>
+                                        247 helpful
+                                    </span>
+                                    <span>32 comments</span>
+                                </div>
+                                <a href="movie_details.html" class="text-accent hover:text-accent/80 text-sm font-medium">
+                                    View Movie →
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Recent Review -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg" alt="Neon Dreams" class="w-16 h-24 object-cover rounded mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=80&h=120&dpr=1'; this.onerror=null;" />
+                                    <div>
+                                        <h3 class="font-inter font-semibold text-text-primary mb-1">Neon Dreams</h3>
+                                        <div class="flex items-center mb-2">
+                                            <span class="text-accent text-lg">★★★★☆</span>
+                                            <span class="text-text-secondary text-sm ml-2">4.2</span>
+                                        </div>
+                                        <span class="text-text-secondary text-sm">Sep 28, 2025</span>
+                                    </div>
+                                </div>
+                                <button class="text-text-secondary hover:text-accent transition-colors duration-200">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="text-text-secondary mb-4 line-clamp-3">
+                                "Great performances and solid direction. While the pacing could be tighter in the second act, the emotional payoff is worth it. The neon-soaked visuals create a unique atmosphere that perfectly complements the story."
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M14 9V5a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zM10 5a1 1 0 0 1 2 0v4h-2V5z"/>
+                                        </svg>
+                                        89 helpful
+                                    </span>
+                                    <span>15 comments</span>
+                                </div>
+                                <a href="movie_details.html" class="text-accent hover:text-accent/80 text-sm font-medium">
+                                    View Movie →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Reviews -->
+                    <div class="text-center mt-8">
+                        <button class="bg-surface border border-subtle text-text-primary font-inter font-medium px-6 py-3 rounded-lg hover:bg-secondary transition-colors duration-200">
+                            Load More Reviews
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Watchlists Tab -->
+                <div id="watchlists-tab" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Watchlist 1 -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-inter font-semibold text-text-primary">Must Watch Thrillers</h3>
+                                <button class="text-text-secondary hover:text-accent transition-colors duration-200">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex -space-x-2 mb-4">
+                                <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=60&auto=format&fit=crop" alt="Movie 1" class="w-12 h-16 object-cover rounded border-2 border-surface" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=60&h=80&dpr=1'; this.onerror=null;" />
+                                <img src="https://images.pixabay.com/photo/2019/04/24/21/55/cinema-4153289_1280.jpg" alt="Movie 2" class="w-12 h-16 object-cover rounded border-2 border-surface" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=60&h=80&dpr=1'; this.onerror=null;" />
+                                <img src="https://images.unsplash.com/photo-1489599511986-c2c2d4c3b5d1?q=80&w=60&auto=format&fit=crop" alt="Movie 3" class="w-12 h-16 object-cover rounded border-2 border-surface" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=60&h=80&dpr=1'; this.onerror=null;" />
+                                <div class="w-12 h-16 bg-surface rounded border-2 border-subtle flex items-center justify-center">
+                                    <span class="text-text-secondary text-xs">+5</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-4">8 movies • Public</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary text-sm">Updated 3 days ago</span>
+                                <button class="text-accent hover:text-accent/80 text-sm font-medium">
+                                    View List →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Watchlist 2 -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-inter font-semibold text-text-primary">Indie Gems</h3>
+                                <button class="text-text-secondary hover:text-accent transition-colors duration-200">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex -space-x-2 mb-4">
+                                <img src="https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=60&h=80&dpr=1" alt="Movie 1" class="w-12 h-16 object-cover rounded border-2 border-surface" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1489599511986-c2c2d4c3b5d1?q=80&w=60&auto=format&fit=crop'; this.onerror=null;" />
+                                <img src="https://images.pixabay.com/photo/2016/02/01/12/33/film-1174973_1280.jpg" alt="Movie 2" class="w-12 h-16 object-cover rounded border-2 border-surface" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=60&h=80&dpr=1'; this.onerror=null;" />
+                                <div class="w-12 h-16 bg-surface rounded border-2 border-subtle flex items-center justify-center">
+                                    <span class="text-text-secondary text-xs">+3</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-4">5 movies • Private</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary text-sm">Updated 1 week ago</span>
+                                <button class="text-accent hover:text-accent/80 text-sm font-medium">
+                                    View List →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Create New Watchlist -->
+                        <div class="card-elevation hover-dramatic p-6 border-2 border-dashed border-subtle">
+                            <div class="text-center">
+                                <svg class="w-12 h-12 text-text-secondary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                </svg>
+                                <h3 class="font-inter font-semibold text-text-primary mb-2">Create New Watchlist</h3>
+                                <p class="text-text-secondary text-sm mb-4">Organize your must-watch movies</p>
+                                <button class="bg-accent text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-200">
+                                    Create List
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Tab -->
+                <div id="activity-tab" class="tab-content hidden">
+                    <div class="space-y-6">
+                        <!-- Activity Item 1 -->
+                        <div class="flex items-start space-x-4 p-4 bg-surface rounded-lg">
+                            <div class="w-2 h-2 bg-accent rounded-full mt-2"></div>
+                            <div class="flex-1">
+                                <p class="text-text-primary">
+                                    <span class="font-medium">Reviewed</span> 
+                                    <a href="movie_details.html" class="text-accent hover:text-accent/80">The Midnight Hour</a>
+                                    and rated it ★★★★★
+                                </p>
+                                <span class="text-text-secondary text-sm">2 hours ago</span>
+                            </div>
+                        </div>
+
+                        <!-- Activity Item 2 -->
+                        <div class="flex items-start space-x-4 p-4 bg-surface rounded-lg">
+                            <div class="w-2 h-2 bg-text-secondary rounded-full mt-2"></div>
+                            <div class="flex-1">
+                                <p class="text-text-primary">
+                                    <span class="font-medium">Added</span> 3 movies to 
+                                    <span class="text-accent">Must Watch Thrillers</span> watchlist
+                                </p>
+                                <span class="text-text-secondary text-sm">1 day ago</span>
+                            </div>
+                        </div>
+
+                        <!-- Activity Item 3 -->
+                        <div class="flex items-start space-x-4 p-4 bg-surface rounded-lg">
+                            <div class="w-2 h-2 bg-text-secondary rounded-full mt-2"></div>
+                            <div class="flex-1">
+                                <p class="text-text-primary">
+                                    <span class="font-medium">Started following</span> 
+                                    <a href="profile_pages.html" class="text-accent hover:text-accent/80">Sarah Williams</a>
+                                </p>
+                                <span class="text-text-secondary text-sm">2 days ago</span>
+                            </div>
+                        </div>
+
+                        <!-- Activity Item 4 -->
+                        <div class="flex items-start space-x-4 p-4 bg-surface rounded-lg">
+                            <div class="w-2 h-2 bg-text-secondary rounded-full mt-2"></div>
+                            <div class="flex-1">
+                                <p class="text-text-primary">
+                                    <span class="font-medium">Liked</span> 
+                                    <a href="profile_pages.html" class="text-accent hover:text-accent/80">Marcus Johnson's</a>
+                                    review of <a href="movie_details.html" class="text-accent hover:text-accent/80">Neon Dreams</a>
+                                </p>
+                                <span class="text-text-secondary text-sm">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Tab -->
+                <div id="stats-tab" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Movie Taste Analysis -->
+                        <div class="card-elevation p-6">
+                            <h3 class="text-xl font-playfair font-bold text-text-primary mb-6">Movie Taste Analysis</h3>
+                            
+                            <!-- Favorite Genres -->
+                            <div class="mb-6">
+                                <h4 class="font-inter font-semibold text-text-primary mb-3">Favorite Genres</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary">Thriller</span>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-24 bg-surface rounded-full h-2">
+                                                <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                                            </div>
+                                            <span class="text-text-secondary text-sm">85%</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary">Drama</span>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-24 bg-surface rounded-full h-2">
+                                                <div class="bg-accent h-2 rounded-full" style="width: 72%"></div>
+                                            </div>
+                                            <span class="text-text-secondary text-sm">72%</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary">Sci-Fi</span>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-24 bg-surface rounded-full h-2">
+                                                <div class="bg-accent h-2 rounded-full" style="width: 68%"></div>
+                                            </div>
+                                            <span class="text-text-secondary text-sm">68%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rating Distribution -->
+                            <div>
+                                <h4 class="font-inter font-semibold text-text-primary mb-3">Rating Distribution</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-accent text-sm w-8">★★★★★</span>
+                                        <div class="flex-1 bg-surface rounded-full h-2">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 35%"></div>
+                                        </div>
+                                        <span class="text-text-secondary text-sm">35%</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-accent text-sm w-8">★★★★☆</span>
+                                        <div class="flex-1 bg-surface rounded-full h-2">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 42%"></div>
+                                        </div>
+                                        <span class="text-text-secondary text-sm">42%</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-accent text-sm w-8">★★★☆☆</span>
+                                        <div class="flex-1 bg-surface rounded-full h-2">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 18%"></div>
+                                        </div>
+                                        <span class="text-text-secondary text-sm">18%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Viewing Patterns -->
+                        <div class="card-elevation p-6">
+                            <h3 class="text-xl font-playfair font-bold text-text-primary mb-6">Viewing Patterns</h3>
+                            
+                            <!-- Key Statistics -->
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="text-center">
+                                    <div class="text-2xl font-inter font-bold text-accent mb-1">4.2</div>
+                                    <div class="text-text-secondary text-sm">Average Rating</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-inter font-bold text-accent mb-1">2010s</div>
+                                    <div class="text-text-secondary text-sm">Favorite Decade</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-inter font-bold text-accent mb-1">127m</div>
+                                    <div class="text-text-secondary text-sm">Avg Runtime</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-inter font-bold text-accent mb-1">89%</div>
+                                    <div class="text-text-secondary text-sm">Completion Rate</div>
+                                </div>
+                            </div>
+
+                            <!-- Compatibility Matcher -->
+                            <div>
+                                <h4 class="font-inter font-semibold text-text-primary mb-3">Top Taste Matches</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=40&auto=format&fit=crop" alt="Sarah Williams" class="w-8 h-8 rounded-full object-cover mr-3" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                            <span class="text-text-primary text-sm">Sarah Williams</span>
+                                        </div>
+                                        <span class="text-accent text-sm font-medium">94% Match</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Marcus Johnson" class="w-8 h-8 rounded-full object-cover mr-3" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                            <span class="text-text-primary text-sm">Marcus Johnson</span>
+                                        </div>
+                                        <span class="text-accent text-sm font-medium">87% Match</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=40&auto=format&fit=crop" alt="Alex Chen" class="w-8 h-8 rounded-full object-cover mr-3" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                            <span class="text-text-primary text-sm">Alex Chen</span>
+                                        </div>
+                                        <span class="text-accent text-sm font-medium">82% Match</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Tab -->
+                <div id="social-tab" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Following -->
+                        <div class="card-elevation p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-xl font-playfair font-bold text-text-primary">Following (456)</h3>
+                                <button class="text-accent hover:text-accent/80 text-sm font-medium">
+                                    View All →
+                                </button>
+                            </div>
+                            <div class="space-y-4">
+                                <!-- Following User 1 -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=50&auto=format&fit=crop" alt="Sarah Williams" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-inter font-semibold text-text-primary">Sarah Williams</h4>
+                                            <p class="text-text-secondary text-sm">Film Critic • 2.3K followers</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-surface border border-subtle text-text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-secondary transition-colors duration-200">
+                                        Following
+                                    </button>
+                                </div>
+
+                                <!-- Following User 2 -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Marcus Johnson" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-inter font-semibold text-text-primary">Marcus Johnson</h4>
+                                            <p class="text-text-secondary text-sm">Top Contributor • 1.8K followers</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-surface border border-subtle text-text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-secondary transition-colors duration-200">
+                                        Following
+                                    </button>
+                                </div>
+
+                                <!-- Following User 3 -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=50&auto=format&fit=crop" alt="Alex Chen" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-inter font-semibold text-text-primary">Alex Chen</h4>
+                                            <p class="text-text-secondary text-sm">Verified Reviewer • 987 followers</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-surface border border-subtle text-text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-secondary transition-colors duration-200">
+                                        Following
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Followers -->
+                        <div class="card-elevation p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-xl font-playfair font-bold text-text-primary">Followers (1.2K)</h3>
+                                <button class="text-accent hover:text-accent/80 text-sm font-medium">
+                                    View All →
+                                </button>
+                            </div>
+                            <div class="space-y-4">
+                                <!-- Follower 1 -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1" alt="Emma Davis" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-inter font-semibold text-text-primary">Emma Davis</h4>
+                                            <p class="text-text-secondary text-sm">Movie Enthusiast • 456 followers</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-accent text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-200">
+                                        Follow Back
+                                    </button>
+                                </div>
+
+                                <!-- Follower 2 -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img src="https://images.pixabay.com/photo/2016/11/29/09/38/adult-1868750_1280.jpg" alt="David Wilson" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-inter font-semibold text-text-primary">David Wilson</h4>
+                                            <p class="text-text-secondary text-sm">Casual Viewer • 123 followers</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-surface border border-subtle text-text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-secondary transition-colors duration-200">
+                                        Following
+                                    </button>
+                                </div>
+
+                                <!-- Follower 3 -->
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=50&auto=format&fit=crop" alt="Lisa Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'; this.onerror=null;" />
+                                        <div>
+                                            <h4 class="font-inter font-semibold text-text-primary">Lisa Rodriguez</h4>
+                                            <p class="text-text-secondary text-sm">Film Student • 789 followers</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-accent text-primary font-inter font-medium px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors duration-200">
+                                        Follow Back
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-12 border-t border-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        <span class="text-xl font-inter font-bold text-accent">CineVault</span>
+                    </div>
+                    <p class="text-text-secondary mb-4 max-w-md">
+                        Where movie passion meets authentic community wisdom. Discover, review, and connect through the films you love.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-inter font-semibold text-text-primary mb-4">Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="browse.html" class="text-text-secondary hover:text-accent transition-colors duration-200">Browse Movies</a></li>
+                        <li><a href="community_hub.html" class="text-text-secondary hover:text-accent transition-colors duration-200">Community</a></li>
+                        <li><a href="user_dashboard.html" class="text-text-secondary hover:text-accent transition-colors duration-200">My Dashboard</a></li>
+                        <li><a href="profile_pages.html" class="text-text-secondary hover:text-accent transition-colors duration-200">My Profile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-inter font-semibold text-text-primary mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Community Guidelines</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-subtle mt-8 pt-8 text-center">
+                <p class="text-text-secondary">© 2025 CineVault. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active', 'border-accent', 'text-accent');
+                    btn.classList.add('border-transparent', 'text-text-secondary');
+                });
+                
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'border-accent', 'text-accent');
+                button.classList.remove('border-transparent', 'text-text-secondary');
+                
+                // Show corresponding content
+                const targetContent = document.getElementById(`${tabName}-tab`);
+                if (targetContent) {
+                    targetContent.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading states for cards
+        document.querySelectorAll('.card-elevation').forEach(card => {
+            card.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                if (img) {
+                    img.style.opacity = '0.7';
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                    }, 300);
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card-elevation').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Local storage for user preferences
+        const userPreferences = {
+            profileVisibility: 'public',
+            showActivity: true,
+            allowMessages: true
+        };
+
+        // Save preferences to localStorage
+        function savePreferences() {
+            localStorage.setItem('userPreferences', JSON.stringify(userPreferences));
+        }
+
+        // Load preferences from localStorage
+        function loadPreferences() {
+            const saved = localStorage.getItem('userPreferences');
+            if (saved) {
+                Object.assign(userPreferences, JSON.parse(saved));
+            }
+        }
+
+        // Initialize preferences
+        loadPreferences();
+
+        // Mock data for dynamic content
+        const mockUserData = {
+            totalMoviesWatched: 247,
+            totalReviews: 89,
+            averageRating: 4.2,
+            favoriteGenres: ['Thriller', 'Drama', 'Sci-Fi'],
+            recentActivity: [
+                { type: 'review', movie: 'The Midnight Hour', rating: 5, timestamp: '2 hours ago' },
+                { type: 'watchlist', action: 'added', count: 3, timestamp: '1 day ago' },
+                { type: 'follow', user: 'Sarah Williams', timestamp: '2 days ago' }
+            ]
+        };
+
+        // Update UI with mock data
+        function updateProfileStats() {
+            // This would typically fetch real data from an API
+            console.log('Profile stats updated with mock data:', mockUserData);
+        }
+
+        // Initialize profile
+        updateProfileStats();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

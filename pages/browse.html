@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Movies - CineVault</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcinevault6865back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary font-source-sans">
+    <!-- Navigation Header -->
+    <header class="bg-primary border-b border-subtle sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        <span class="text-xl font-inter font-bold text-accent">CineVault</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="browse.html" class="text-accent px-3 py-2 rounded-md text-sm font-medium">Browse</a>
+                        <a href="community_hub.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Community</a>
+                        <a href="user_dashboard.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Dashboard</a>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8 hidden lg:block">
+                    <div class="relative">
+                        <input type="text" id="mainSearchInput" placeholder="Search movies, actors, directors..." class="w-full bg-surface border border-subtle rounded-lg px-4 py-2 pl-10 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent transition-colors duration-200" />
+                        <svg class="w-5 h-5 text-text-secondary absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <!-- Search Suggestions Dropdown -->
+                        <div id="searchSuggestions" class="absolute top-full left-0 right-0 bg-surface border border-subtle rounded-lg mt-1 hidden z-50 max-h-64 overflow-y-auto">
+                            <!-- Dynamic suggestions will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button id="mobileSearchBtn" class="text-text-secondary hover:text-text-primary transition-colors duration-200 lg:hidden">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="text-text-secondary hover:text-text-primary transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"/>
+                        </svg>
+                    </button>
+                    <a href="profile_pages.html" class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary font-medium text-sm">
+                        JD
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-playfair font-bold text-text-primary mb-4">Discover Movies</h1>
+            <p class="text-text-secondary text-lg">Explore our vast collection of films with advanced search and intelligent recommendations</p>
+        </div>
+
+        <!-- Advanced Search Section -->
+        <section class="mb-8">
+            <div class="card-elevation p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-inter font-semibold text-text-primary">Advanced Search</h2>
+                    <button id="toggleFilters" class="text-accent hover:text-accent/80 font-medium transition-colors duration-200">
+                        <span class="hidden md:inline">Show Filters</span>
+                        <svg class="w-5 h-5 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Enhanced Search Bar -->
+                <div class="relative mb-6">
+                    <input type="text" id="advancedSearchInput" placeholder="Search by title, actor, director, or keyword..." class="w-full bg-background border border-subtle rounded-lg px-4 py-3 pl-12 pr-20 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent transition-colors duration-200" />
+                    <svg class="w-6 h-6 text-text-secondary absolute left-4 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <button id="voiceSearchBtn" class="absolute right-12 top-3.5 text-text-secondary hover:text-accent transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </button>
+                    <button id="clearSearchBtn" class="absolute right-4 top-3.5 text-text-secondary hover:text-error transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Filter Panel -->
+                <div id="filterPanel" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Genre Filter -->
+                        <div>
+                            <label class="block text-text-primary font-medium mb-2">Genre</label>
+                            <select id="genreFilter" class="w-full bg-background border border-subtle rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-accent">
+                                <option value>All Genres</option>
+                                <option value="action">Action</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="drama">Drama</option>
+                                <option value="horror">Horror</option>
+                                <option value="romance">Romance</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="animation">Animation</option>
+                            </select>
+                        </div>
+
+                        <!-- Year Filter -->
+                        <div>
+                            <label class="block text-text-primary font-medium mb-2">Release Year</label>
+                            <div class="flex space-x-2">
+                                <input type="number" id="yearFrom" placeholder="From" min="1900" max="2025" class="w-full bg-background border border-subtle rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-accent" />
+                                <input type="number" id="yearTo" placeholder="To" min="1900" max="2025" class="w-full bg-background border border-subtle rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-accent" />
+                            </div>
+                        </div>
+
+                        <!-- Rating Filter -->
+                        <div>
+                            <label class="block text-text-primary font-medium mb-2">Minimum Rating</label>
+                            <select id="ratingFilter" class="w-full bg-background border border-subtle rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-accent">
+                                <option value>Any Rating</option>
+                                <option value="9">9.0+ Masterpiece</option>
+                                <option value="8">8.0+ Excellent</option>
+                                <option value="7">7.0+ Good</option>
+                                <option value="6">6.0+ Decent</option>
+                                <option value="5">5.0+ Average</option>
+                            </select>
+                        </div>
+
+                        <!-- Runtime Filter -->
+                        <div>
+                            <label class="block text-text-primary font-medium mb-2">Runtime</label>
+                            <select id="runtimeFilter" class="w-full bg-background border border-subtle rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-accent">
+                                <option value>Any Length</option>
+                                <option value="short">Under 90 min</option>
+                                <option value="medium">90-120 min</option>
+                                <option value="long">120-150 min</option>
+                                <option value="epic">Over 150 min</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <button id="applyFiltersBtn" class="btn-primary">Apply Filters</button>
+                        <button id="clearFiltersBtn" class="bg-transparent border border-subtle text-text-secondary hover:text-text-primary hover:border-text-secondary px-4 py-2 rounded-lg transition-colors duration-200">
+                            Clear All
+                        </button>
+                        <button id="saveSearchBtn" class="bg-transparent border border-accent text-accent hover:bg-accent hover:text-primary px-4 py-2 rounded-lg transition-all duration-200">
+                            Save Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Genre Navigation -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-inter font-semibold text-text-primary mb-6">Browse by Genre</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Action Genre -->
+                <div class="card-elevation hover-dramatic group cursor-pointer" data-genre="action">
+                    <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative bg-surface animate-pulse">
+                        <img id="action-genre-img" src="" alt="Action Movies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 hidden" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg">Action</h3>
+                            <p class="text-text-secondary text-sm">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comedy Genre -->
+                <div class="card-elevation hover-dramatic group cursor-pointer" data-genre="comedy">
+                    <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative bg-surface animate-pulse">
+                        <img id="comedy-genre-img" src="" alt="Comedy Movies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 hidden" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg">Comedy</h3>
+                            <p class="text-text-secondary text-sm">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drama Genre -->
+                <div class="card-elevation hover-dramatic group cursor-pointer" data-genre="drama">
+                    <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative bg-surface animate-pulse">
+                        <img id="drama-genre-img" src="" alt="Drama Movies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 hidden" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg">Drama</h3>
+                            <p class="text-text-secondary text-sm">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horror Genre -->
+                <div class="card-elevation hover-dramatic group cursor-pointer" data-genre="horror">
+                    <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative bg-surface animate-pulse">
+                        <img id="horror-genre-img" src="" alt="Horror Movies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 hidden" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg">Horror</h3>
+                            <p class="text-text-secondary text-sm">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sci-Fi Genre -->
+                <div class="card-elevation hover-dramatic group cursor-pointer" data-genre="sci-fi">
+                    <div class="aspect-[4/3] overflow-hidden rounded-t-lg relative bg-surface animate-pulse">
+                        <img id="scifi-genre-img" src="" alt="Sci-Fi Movies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 hidden" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg">Sci-Fi</h3>
+                            <p class="text-text-secondary text-sm">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                    <h2 class="text-2xl font-inter font-semibold text-text-primary">Search Results</h2>
+                    <span id="resultsCount" class="text-text-secondary">Showing 2,847 movies</span>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Sort Options -->
+                    <select id="sortOptions" class="bg-surface border border-subtle rounded-lg px-3 py-2 text-text-primary focus:outline-none focus:border-accent">
+                        <option value="popularity">Most Popular</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="recent">Most Recent</option>
+                        <option value="alphabetical">A-Z</option>
+                        <option value="year">Release Year</option>
+                    </select>
+
+                    <!-- View Toggle -->
+                    <div class="flex bg-surface rounded-lg border border-subtle">
+                        <button id="gridViewBtn" class="px-3 py-2 text-accent border-r border-subtle">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
+                            </svg>
+                        </button>
+                        <button id="listViewBtn" class="px-3 py-2 text-text-secondary hover:text-text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movie Grid -->
+            <div id="movieGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Loading state - will be replaced by OMDb API results -->
+                <div class="col-span-full flex justify-center items-center py-20">
+                    <div class="text-center">
+                        <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-accent mb-4"></div>
+                        <p class="text-text-secondary">Loading movies from OMDb API...</p>
+                    </div>
+                </div>
+                <!-- Movie Card 1 (hidden, will be replaced by API) -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=400&auto=format&fit=crop" alt="The Midnight Hour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">The Midnight Hour</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 8.7</span>
+                                <span class="text-text-secondary text-sm">2024</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Action, Thriller</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 2 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.pixabay.com/photo-2019/04/24/21/55/cinema-4153289_1280.jpg" alt="Neon Dreams" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Neon Dreams</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 9.1</span>
+                                <span class="text-text-secondary text-sm">2024</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Sci-Fi, Drama</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 3 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.unsplash.com/photo-1489599511986-c2c2d4c3b5d1?q=80&w=400&auto=format&fit=crop" alt="Silent Echoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Silent Echoes</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 8.4</span>
+                                <span class="text-text-secondary text-sm">2024</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Drama, Mystery</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 4 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1" alt="Urban Legends" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1489599511986-c2c2d4c3b5d1?q=80&w=400&auto=format&fit=crop'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Urban Legends</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 7.9</span>
+                                <span class="text-text-secondary text-sm">2024</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Horror, Thriller</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 5 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.pixabay.com/photo/2016/02/01/12/33/film-1174973_1280.jpg" alt="Cosmic Journey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Cosmic Journey</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 8.8</span>
+                                <span class="text-text-secondary text-sm">2024</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Sci-Fi, Adventure</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 6 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=400&auto=format&fit=crop" alt="Quantum Paradox" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Quantum Paradox</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 8.6</span>
+                                <span class="text-text-secondary text-sm">2023</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Sci-Fi, Thriller</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 7 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg" alt="The Last Symphony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">The Last Symphony</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 9.2</span>
+                                <span class="text-text-secondary text-sm">2023</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Drama, Music</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 8 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Desert Winds" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Desert Winds</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 8.1</span>
+                                <span class="text-text-secondary text-sm">2023</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Adventure, Western</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 9 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Midnight Runner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Midnight Runner</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 7.8</span>
+                                <span class="text-text-secondary text-sm">2023</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Action, Crime</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Movie Card 10 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer movie-card">
+                    <a href="movie_details.html" class="block">
+                        <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=400&auto=format&fit=crop" alt="Ocean's Edge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">Ocean's Edge</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-accent font-medium">★ 8.3</span>
+                                <span class="text-text-secondary text-sm">2022</span>
+                            </div>
+                            <p class="text-text-secondary text-sm line-clamp-2">Drama, Romance</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-8">
+                <button id="loadMoreBtn" class="btn-primary">
+                    Load More Movies
+                </button>
+            </div>
+        </section>
+
+        <!-- Curated Collections -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-inter font-semibold text-text-primary mb-6">Curated Collections</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Collection 1 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer">
+                    <div class="aspect-[16/9] overflow-hidden rounded-t-lg relative">
+                        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=800&auto=format&fit=crop" alt="Award Winners 2024" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1'; this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg mb-2">Award Winners 2024</h3>
+                            <p class="text-text-secondary text-sm mb-2">The year's most celebrated films</p>
+                            <span class="text-accent text-sm">24 movies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer">
+                    <div class="aspect-[16/9] overflow-hidden rounded-t-lg relative">
+                        <img src="https://images.pixabay.com/photo-2019/04/24/21/55/cinema-4153289_1280.jpg" alt="Hidden Gems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1'; this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg mb-2">Hidden Gems</h3>
+                            <p class="text-text-secondary text-sm mb-2">Underrated masterpieces you might have missed</p>
+                            <span class="text-accent text-sm">18 movies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="card-elevation hover-dramatic group cursor-pointer">
+                    <div class="aspect-[16/9] overflow-hidden rounded-t-lg relative">
+                        <img src="https://images.unsplash.com/photo-1489599511986-c2c2d4c3b5d1?q=80&w=800&auto=format&fit=crop" alt="Weekend Binge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1'; this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="font-inter font-semibold text-text-primary text-lg mb-2">Weekend Binge</h3>
+                            <p class="text-text-secondary text-sm mb-2">Perfect for your next movie marathon</p>
+                            <span class="text-accent text-sm">12 movies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-12 border-t border-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        <span class="text-xl font-inter font-bold text-accent">CineVault</span>
+                    </div>
+                    <p class="text-text-secondary mb-4 max-w-md">
+                        Where movie passion meets authentic community wisdom. Discover, review, and connect through the films you love.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-inter font-semibold text-text-primary mb-4">Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="browse.html" class="text-text-secondary hover:text-accent transition-colors duration-200">Browse Movies</a></li>
+                        <li><a href="community_hub.html" class="text-text-secondary hover:text-accent transition-colors duration-200">Community</a></li>
+                        <li><a href="user_dashboard.html" class="text-text-secondary hover:text-accent transition-colors duration-200">My Dashboard</a></li>
+                        <li><a href="profile_pages.html" class="text-text-secondary hover:text-accent transition-colors duration-200">My Profile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-inter font-semibold text-text-primary mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Community Guidelines</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-subtle mt-8 pt-8 text-center">
+                <p class="text-text-secondary">© 2025 CineVault. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Search Overlay -->
+    <div id="mobileSearchOverlay" class="fixed inset-0 bg-background z-50 hidden lg:hidden">
+        <div class="p-4">
+            <div class="flex items-center mb-4">
+                <button id="closeMobileSearch" class="text-text-secondary hover:text-text-primary mr-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <input type="text" placeholder="Search movies, actors, directors..." class="flex-1 bg-surface border border-subtle rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // OMDb API Configuration
+    const OMDB_API_KEY = '9c4ec697';
+    const OMDB_BASE_URL = 'https://www.omdbapi.com/';
+
+    // Search functionality
+    const mainSearchInput = document.getElementById('mainSearchInput');
+    const advancedSearchInput = document.getElementById('advancedSearchInput');
+    const searchSuggestions = document.getElementById('searchSuggestions');
+    const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+    const mobileSearchOverlay = document.getElementById('mobileSearchOverlay');
+    const closeMobileSearch = document.getElementById('closeMobileSearch');
+
+    // Filter functionality
+    const toggleFilters = document.getElementById('toggleFilters');
+    const filterPanel = document.getElementById('filterPanel');
+    const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+    const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+
+    // View toggle functionality
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const listViewBtn = document.getElementById('listViewBtn');
+    const movieGrid = document.getElementById('movieGrid');
+
+    // Loading state management
+    let searchCache = new Map();
+    let searchTimeout = null;
+    let isLoading = false;
+
+    // OMDb API Functions
+    async function searchMoviesOMDb(query, page = 1) {
+        if (!query || query.length < 2) return { Search: [], totalResults: 0 };
+        
+        const cacheKey = `${query}_${page}`;
+        if (searchCache.has(cacheKey)) {
+            return searchCache.get(cacheKey);
+        }
+
+        try {
+            const url = `${OMDB_BASE_URL}?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(query)}&page=${page}&type=movie`;
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            if (data.Response === 'True') {
+                searchCache.set(cacheKey, data);
+                return data;
+            } else {
+                console.log('OMDb API Error:', data.Error);
+                return { Search: [], totalResults: 0, Error: data.Error };
+            }
+        } catch (error) {
+            console.error('API Request Error:', error);
+            return { Search: [], totalResults: 0, Error: 'Network error' };
+        }
+    }
+
+    async function getMovieDetailsOMDb(imdbID) {
+        const cacheKey = `details_${imdbID}`;
+        if (searchCache.has(cacheKey)) {
+            return searchCache.get(cacheKey);
+        }
+
+        try {
+            const url = `${OMDB_BASE_URL}?apikey=${OMDB_API_KEY}&i=${imdbID}&plot=short`;
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            if (data.Response === 'True') {
+                searchCache.set(cacheKey, data);
+                return data;
+            }
+            return null;
+        } catch (error) {
+            console.error('API Request Error:', error);
+            return null;
+        }
+    }
+
+    // Enhanced search suggestions functionality
+    async function showSearchSuggestions(query) {
+        if (query.length < 2) {
+            searchSuggestions.classList.add('hidden');
+            return;
+        }
+
+        // Show loading state
+        searchSuggestions.innerHTML = `
+            <div class="p-4 text-center">
+                <div class="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-accent"></div>
+                <span class="ml-2 text-text-secondary">Searching...</span>
+            </div>
+        `;
+        searchSuggestions.classList.remove('hidden');
+
+        try {
+            const data = await searchMoviesOMDb(query);
+            
+            if (data.Search && data.Search.length > 0) {
+                const suggestions = data.Search.slice(0, 5); // Limit to 5 suggestions
+                searchSuggestions.innerHTML = suggestions.map(movie => `
+                    <div class="flex items-center p-3 hover:bg-primary cursor-pointer transition-colors duration-200" onclick="selectMovie('${movie.Title}', '${movie.imdbID}')">
+                        <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=100&h=150&dpr=1'}" 
+                             alt="${movie.Title}" class="w-12 h-16 object-cover rounded mr-3" 
+                             onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=100&h=150&dpr=1'">
+                        <div class="flex-1">
+                            <div class="text-text-primary font-medium">${movie.Title}</div>
+                            <div class="text-text-secondary text-sm">${movie.Year}</div>
+                            <div class="text-text-secondary text-xs">${movie.Type}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                searchSuggestions.innerHTML = `
+                    <div class="p-4 text-center text-text-secondary">
+                        No movies found for "${query}"
+                    </div>
+                `;
+            }
+        } catch (error) {
+            searchSuggestions.innerHTML = `
+                <div class="p-4 text-center text-error">
+                    Search temporarily unavailable
+                </div>
+            `;
+        }
+    }
+
+    function selectMovie(title, imdbID) {
+        mainSearchInput.value = title;
+        advancedSearchInput.value = title;
+        searchSuggestions.classList.add('hidden');
+        // Store the selected movie for potential navigation
+        localStorage.setItem('selectedMovie', JSON.stringify({ title, imdbID }));
+        window.location.href = 'movie_details.html';
+    }
+
+    // Enhanced movie grid update function
+    async function updateMovieGrid(searchQuery = '', filters = {}) {
+        if (isLoading) return;
+        isLoading = true;
+
+        // Show loading state
+        const loadingHTML = `
+            <div class="col-span-full flex justify-center items-center py-20">
+                <div class="text-center">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-accent mb-4"></div>
+                    <p class="text-text-secondary">Loading movies...</p>
+                </div>
+            </div>
+        `;
+        movieGrid.innerHTML = loadingHTML;
+
+        try {
+            const data = await searchMoviesOMDb(searchQuery || 'popular');
+            
+            if (data.Search && data.Search.length > 0) {
+                const movies = data.Search;
+                document.getElementById('resultsCount').textContent = `Showing ${movies.length} of ${data.totalResults || movies.length} movies`;
+
+                // Apply client-side filters
+                let filteredMovies = movies;
+                if (filters.year) {
+                    filteredMovies = filteredMovies.filter(movie => movie.Year.includes(filters.year));
+                }
+
+                const movieCardsHTML = filteredMovies.map(movie => `
+                    <div class="card-elevation hover-dramatic group cursor-pointer movie-card" data-imdb-id="${movie.imdbID}">
+                        <a href="movie_details.html" class="block" onclick="selectMovie('${movie.Title}', '${movie.imdbID}')">
+                            <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                                <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'}" 
+                                     alt="${movie.Title}" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                                     loading="lazy" 
+                                     onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">${movie.Title}</h3>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-accent font-medium">⭐ ${movie.imdbRating || 'N/A'}</span>
+                                    <span class="text-text-secondary text-sm">${movie.Year}</span>
+                                </div>
+                                <p class="text-text-secondary text-sm line-clamp-2">${movie.Type}</p>
+                            </div>
+                        </a>
+                    </div>
+                `).join('');
+
+                movieGrid.innerHTML = movieCardsHTML;
+                movieGrid.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6';
+
+                // Re-apply intersection observer for animations
+                observeMovieCards();
+            } else {
+                movieGrid.innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <div class="text-text-secondary">
+                            <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            <h3 class="text-xl font-medium mb-2">No movies found</h3>
+                            <p>${searchQuery ? `Try searching for "${searchQuery}" with different keywords` : 'Try a different search term'}</p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('resultsCount').textContent = 'No movies found';
+            }
+        } catch (error) {
+            movieGrid.innerHTML = `
+                <div class="col-span-full text-center py-20">
+                    <div class="text-error">
+                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.232 15.5c-.77.833.192 2.5 1.732 2.5z"/>
+                        </svg>
+                        <h3 class="text-xl font-medium mb-2">Search temporarily unavailable</h3>
+                        <p>Please try again in a moment</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('resultsCount').textContent = 'Search error';
+        }
+
+        isLoading = false;
+    }
+
+    function observeMovieCards() {
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe movie cards for animation
+        document.querySelectorAll('.movie-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    }
+
+    // Debounced search input event listeners
+    function debounceSearch(func, wait) {
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(searchTimeout);
+                func(...args);
+            };
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(later, wait);
+        };
+    }
+
+    const debouncedSuggestions = debounceSearch(showSearchSuggestions, 300);
+    const debouncedSearch = debounceSearch((query) => {
+        if (query.length >= 2) {
+            updateMovieGrid(query);
+        }
+    }, 500);
+
+    // Search input event listeners
+    mainSearchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        debouncedSuggestions(query);
+        if (query.length >= 2) {
+            debouncedSearch(query);
+        } else if (query.length === 0) {
+            updateMovieGrid(); // Load default movies
+        }
+    });
+
+    advancedSearchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        debouncedSuggestions(query);
+        if (query.length >= 2) {
+            debouncedSearch(query);
+        } else if (query.length === 0) {
+            updateMovieGrid(); // Load default movies
+        }
+    });
+
+    // Handle Enter key for search
+    [mainSearchInput, advancedSearchInput].forEach(input => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const query = e.target.value.trim();
+                if (query.length >= 2) {
+                    searchSuggestions.classList.add('hidden');
+                    updateMovieGrid(query);
+                }
+            }
+        });
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.relative')) {
+            searchSuggestions.classList.add('hidden');
+        }
+    });
+
+    // Mobile search functionality
+    mobileSearchBtn.addEventListener('click', () => {
+        mobileSearchOverlay.classList.remove('hidden');
+        const mobileInput = mobileSearchOverlay.querySelector('input');
+        mobileInput.focus();
+    });
+
+    closeMobileSearch.addEventListener('click', () => {
+        mobileSearchOverlay.classList.add('hidden');
+    });
+
+    // Filter toggle functionality
+    toggleFilters.addEventListener('click', () => {
+        filterPanel.classList.toggle('hidden');
+        const isHidden = filterPanel.classList.contains('hidden');
+        toggleFilters.innerHTML = isHidden ? 
+            '<span class="hidden md:inline">Show Filters</span><svg class="w-5 h-5 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>' :
+            '<span class="hidden md:inline">Hide Filters</span><svg class="w-5 h-5 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+    });
+
+    // Apply filters functionality
+    applyFiltersBtn.addEventListener('click', () => {
+        const currentQuery = advancedSearchInput.value.trim() || mainSearchInput.value.trim();
+        const filters = {
+            genre: document.getElementById('genreFilter').value,
+            yearFrom: document.getElementById('yearFrom').value,
+            yearTo: document.getElementById('yearTo').value,
+            rating: document.getElementById('ratingFilter').value,
+            runtime: document.getElementById('runtimeFilter').value
+        };
+
+        // For OMDb API, we'll need to modify the search query based on filters
+        let searchQuery = currentQuery;
+        if (filters.yearFrom) {
+            searchQuery += ` y:${filters.yearFrom}`;
+        }
+
+        updateMovieGrid(searchQuery, filters);
+    });
+
+    // Clear filters functionality
+    clearFiltersBtn.addEventListener('click', () => {
+        document.getElementById('genreFilter').value = '';
+        document.getElementById('yearFrom').value = '';
+        document.getElementById('yearTo').value = '';
+        document.getElementById('ratingFilter').value = '';
+        document.getElementById('runtimeFilter').value = '';
+        
+        const currentQuery = advancedSearchInput.value.trim() || mainSearchInput.value.trim();
+        updateMovieGrid(currentQuery);
+    });
+
+    // View toggle functionality
+    gridViewBtn.addEventListener('click', () => {
+        movieGrid.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6';
+        gridViewBtn.classList.add('text-accent');
+        gridViewBtn.classList.remove('text-text-secondary');
+        listViewBtn.classList.add('text-text-secondary');
+        listViewBtn.classList.remove('text-accent');
+    });
+
+    listViewBtn.addEventListener('click', () => {
+        movieGrid.className = 'space-y-4';
+        listViewBtn.classList.add('text-accent');
+        listViewBtn.classList.remove('text-text-secondary');
+        gridViewBtn.classList.add('text-text-secondary');
+        gridViewBtn.classList.remove('text-accent');
+        
+        // Convert cards to list view
+        const movieCards = document.querySelectorAll('.movie-card');
+        movieCards.forEach(card => {
+            card.className = 'card-elevation hover-dramatic group cursor-pointer movie-card flex';
+            const link = card.querySelector('a');
+            if (link) {
+                link.className = 'flex w-full';
+                const img = card.querySelector('img');
+                const content = card.querySelector('.p-4');
+                
+                // Restructure for list view
+                if (img && content) {
+                    img.parentElement.className = 'w-24 h-36 flex-shrink-0 overflow-hidden rounded-l-lg';
+                    content.className = 'flex-1 p-4';
+                }
+            }
+        });
+    });
+
+    // Genre selection functionality with OMDb search
+    document.querySelectorAll('[data-genre]').forEach(genreCard => {
+        genreCard.addEventListener('click', () => {
+            const genre = genreCard.dataset.genre;
+            document.getElementById('genreFilter').value = genre;
+            filterPanel.classList.remove('hidden');
+            
+            // Search for movies by genre
+            updateMovieGrid(genre);
+        });
+    });
+
+    // Sort functionality
+    document.getElementById('sortOptions').addEventListener('change', (e) => {
+        const sortBy = e.target.value;
+        console.log('Sorting by:', sortBy);
+        // OMDb API doesn't support sorting, but we can sort results client-side
+        const currentQuery = advancedSearchInput.value.trim() || mainSearchInput.value.trim();
+        updateMovieGrid(currentQuery);
+    });
+
+    // Load more functionality (pagination)
+    let currentPage = 1;
+    document.getElementById('loadMoreBtn').addEventListener('click', async () => {
+        const btn = document.getElementById('loadMoreBtn');
+        const originalText = btn.textContent;
+        btn.textContent = 'Loading...';
+        btn.disabled = true;
+        
+        try {
+            currentPage++;
+            const currentQuery = advancedSearchInput.value.trim() || mainSearchInput.value.trim() || 'popular';
+            const data = await searchMoviesOMDb(currentQuery, currentPage);
+            
+            if (data.Search && data.Search.length > 0) {
+                // Append new movies to existing grid
+                const newMoviesHTML = data.Search.map(movie => `
+                    <div class="card-elevation hover-dramatic group cursor-pointer movie-card" data-imdb-id="${movie.imdbID}">
+                        <a href="movie_details.html" class="block" onclick="selectMovie('${movie.Title}', '${movie.imdbID}')">
+                            <div class="aspect-[2/3] overflow-hidden rounded-t-lg">
+                                <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'}" 
+                                     alt="${movie.Title}" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                                     loading="lazy" 
+                                     onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=1'; this.onerror=null;" />
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-inter font-semibold text-text-primary mb-2 line-clamp-2">${movie.Title}</h3>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-accent font-medium">⭐ ${movie.imdbRating || 'N/A'}</span>
+                                    <span class="text-text-secondary text-sm">${movie.Year}</span>
+                                </div>
+                                <p class="text-text-secondary text-sm line-clamp-2">${movie.type}</p>
+                            </div>
+                        </a>
+                    </div>
+                `).join('');
+                
+                movieGrid.innerHTML += newMoviesHTML;
+                observeMovieCards(); // Re-apply animations to new cards
+            } else {
+                btn.style.display = 'none'; // Hide button if no more results
+            }
+        } catch (error) {
+            console.error('Load more error:', error);
+        }
+        
+        btn.textContent = originalText;
+        btn.disabled = false;
+    });
+
+    // Voice search functionality (enhanced)
+    document.getElementById('voiceSearchBtn').addEventListener('click', () => {
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                document.getElementById('voiceSearchBtn').classList.add('text-accent');
+                advancedSearchInput.placeholder = 'Listening...';
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                advancedSearchInput.value = transcript;
+                mainSearchInput.value = transcript;
+                updateMovieGrid(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                console.log('Voice recognition error:', event.error);
+                advancedSearchInput.placeholder = 'Search by title, actor, director, or keyword...';
+            };
+
+            recognition.onend = () => {
+                document.getElementById('voiceSearchBtn').classList.remove('text-accent');
+                advancedSearchInput.placeholder = 'Search by title, actor, director, or keyword...';
+            };
+
+            recognition.start();
+        } else {
+            alert('Voice search is not supported in your browser');
+        }
+    });
+
+    // Clear search functionality
+    document.getElementById('clearSearchBtn').addEventListener('click', () => {
+        advancedSearchInput.value = '';
+        mainSearchInput.value = '';
+        searchSuggestions.classList.add('hidden');
+        currentPage = 1;
+        updateMovieGrid(); // Load default movies
+    });
+
+    // Save search functionality (enhanced)
+    document.getElementById('saveSearchBtn').addEventListener('click', () => {
+        const searchData = {
+            query: advancedSearchInput.value,
+            genre: document.getElementById('genreFilter').value,
+            yearFrom: document.getElementById('yearFrom').value,
+            yearTo: document.getElementById('yearTo').value,
+            rating: document.getElementById('ratingFilter').value,
+            runtime: document.getElementById('runtimeFilter').value,
+            timestamp: new Date().toISOString(),
+            resultsCount: document.getElementById('resultsCount').textContent
+        };
+        
+        // Save to localStorage
+        const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || '[]');
+        savedSearches.unshift(searchData); // Add to beginning
+        savedSearches.splice(10); // Keep only last 10 searches
+        localStorage.setItem('savedSearches', JSON.stringify(savedSearches));
+        
+        // Show confirmation
+        const btn = document.getElementById('saveSearchBtn');
+        const originalText = btn.textContent;
+        btn.textContent = 'Saved!';
+        btn.classList.add('bg-success', 'text-white');
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('bg-success', 'text-white');
+        }, 2000);
+    });
+
+    // Function to load genre images from OMDb API
+    async function loadGenreImages() {
+        const genreMovies = {
+            action: ['Mad Max', 'Die Hard', 'Fast Five', 'John Wick'],
+            comedy: ['The Hangover', 'Superbad', 'Anchorman', 'Dumb and Dumber'],
+            drama: ['The Shawshank Redemption', 'Forrest Gump', 'The Godfather', 'Titanic'],
+            horror: ['The Conjuring', 'Insidious', 'A Quiet Place', 'Halloween'],
+            scifi: ['Interstellar', 'Blade Runner', 'The Matrix', 'Inception']
+        };
+
+        for (const [genre, movies] of Object.entries(genreMovies)) {
+            try {
+                // Try each movie until we find one with a good poster
+                for (const movie of movies) {
+                    const data = await searchMoviesOMDb(movie, 1);
+                    if (data.Search && data.Search.length > 0) {
+                        const movieData = data.Search[0];
+                        if (movieData.Poster && movieData.Poster !== 'N/A') {
+                            const genreImg = document.getElementById(`${genre}-genre-img`);
+                            const genreContainer = genreImg?.parentElement;
+                            
+                            if (genreImg && genreContainer) {
+                                genreImg.src = movieData.Poster;
+                                genreImg.alt = `${movieData.Title} - ${genre.charAt(0).toUpperCase() + genre.slice(1)} Movies`;
+                                
+                                // Remove loading state and show image
+                                genreContainer.classList.remove('animate-pulse', 'bg-surface');
+                                genreImg.classList.remove('hidden');
+                                
+                                // Update movie count text
+                                const countText = genreContainer.querySelector('p');
+                                if (countText) {
+                                    const counts = {
+                                        action: '1,247 movies',
+                                        comedy: '892 movies', 
+                                        drama: '1,456 movies',
+                                        horror: '634 movies',
+                                        scifi: '789 movies'
+                                    };
+                                    countText.textContent = counts[genre] || 'Loading...';
+                                }
+                                break; // Found a good poster, move to next genre
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.log(`Error loading ${genre} genre image:`, error);
+                // Remove loading state even on error
+                const genreImg = document.getElementById(`${genre}-genre-img`);
+                const genreContainer = genreImg?.parentElement;
+                if (genreContainer) {
+                    genreContainer.classList.remove('animate-pulse');
+                    genreContainer.classList.add('bg-gray-600'); // Show error state
+                }
+            }
+        }
+    }
+
+    // Initialize the page with default movies
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load genre images from OMDb API
+        loadGenreImages();
+        
+        // Load popular movies by default
+        updateMovieGrid('action'); // Load action movies as default
+        
+        // Check if there's a search query in URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+        if (searchQuery) {
+            mainSearchInput.value = searchQuery;
+            advancedSearchInput.value = searchQuery;
+            updateMovieGrid(searchQuery);
+        }
+    });
+
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+        if (searchQuery) {
+            mainSearchInput.value = searchQuery;
+            advancedSearchInput.value = searchQuery;
+            updateMovieGrid(searchQuery);
+        }
+    });
+</script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

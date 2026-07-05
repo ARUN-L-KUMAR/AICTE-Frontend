@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineVault - Your Ultimate Movie Collection</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .loading-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #4ecdc4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        .loading-text {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(78, 205, 196, 0.5); }
+            to { text-shadow: 0 0 30px rgba(78, 205, 196, 0.8), 0 0 40px rgba(255, 107, 107, 0.3); }
+        }
+        
+        .film-reel {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+        
+        .film-reel:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .film-reel:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .film-reel:nth-child(2) { top: 20%; right: 15%; animation-delay: -2s; }
+        .film-reel:nth-child(3) { bottom: 15%; left: 20%; animation-delay: -4s; }
+        .film-reel:nth-child(4) { bottom: 25%; right: 10%; animation-delay: -6s; }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcinevault6865back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body>
+    <div class="film-reel"></div>
+    <div class="film-reel"></div>
+    <div class="film-reel"></div>
+    <div class="film-reel"></div>
+    
+    <div class="loading-container">
+        <div class="logo">CineVault</div>
+        <div class="tagline">Your Ultimate Movie Collection</div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading your cinematic experience...</div>
+    </div>
+
+    <script>
+        // Redirect to homepage after 3 seconds
+        setTimeout(function() {
+            window.location.href = 'pages/homepage.html';
+        }, 3000);
+        
+        // Optional: Allow immediate redirect on click
+        document.addEventListener('click', function() {
+            window.location.href = 'pages/homepage.html';
+        });
+        
+        // Optional: Allow immediate redirect on any key press
+        document.addEventListener('keypress', function() {
+            window.location.href = 'pages/homepage.html';
+        });
+    </script>
+<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+</body>
+</html>

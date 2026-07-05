@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Hub - CineVault</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcinevault6865back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary font-source-sans">
+    <!-- Navigation Header -->
+    <header class="bg-primary border-b border-subtle sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        <span class="text-xl font-inter font-bold text-accent">CineVault</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="browse.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Browse</a>
+                        <a href="community_hub.html" class="text-accent px-3 py-2 rounded-md text-sm font-medium">Community</a>
+                        <a href="user_dashboard.html" class="text-text-secondary hover:text-text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Dashboard</a>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8 hidden lg:block">
+                    <div class="relative">
+                        <input type="text" placeholder="Search community discussions..." class="w-full bg-surface border border-subtle rounded-lg px-4 py-2 pl-10 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent transition-colors duration-200" />
+                        <svg class="w-5 h-5 text-text-secondary absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-text-secondary hover:text-text-primary transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"/>
+                        </svg>
+                    </button>
+                    <a href="profile_pages.html" class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary font-medium text-sm">
+                        JD
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Community Hero Section -->
+    <section class="relative py-16 bg-gradient-to-r from-background via-surface to-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-playfair font-bold text-text-primary mb-6">
+                    Community <span class="text-accent">Hub</span>
+                </h1>
+                <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Where movie enthusiasts gather to share insights, discover hidden gems, and celebrate the art of cinema together
+                </p>
+                
+                <!-- Community Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-2xl md:text-3xl font-inter font-bold text-accent mb-1">127K+</div>
+                        <div class="text-text-secondary text-sm">Active Members</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl md:text-3xl font-inter font-bold text-accent mb-1">2.3M+</div>
+                        <div class="text-text-secondary text-sm">Reviews Posted</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl md:text-3xl font-inter font-bold text-accent mb-1">45K+</div>
+                        <div class="text-text-secondary text-sm">Discussions</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl md:text-3xl font-inter font-bold text-accent mb-1">892</div>
+                        <div class="text-text-secondary text-sm">Online Now</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Reviewer Spotlight -->
+    <section class="py-16 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-12">
+                <h2 class="text-3xl font-playfair font-bold text-text-primary">Featured Reviewers</h2>
+                <a href="profile_pages.html" class="text-accent hover:text-accent/80 font-inter font-medium transition-colors duration-200">
+                    View All Contributors →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Featured Reviewer 1 -->
+                <div class="card-elevation hover-dramatic p-6 text-center">
+                    <div class="relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Alex Chen" class="w-20 h-20 rounded-full object-cover mx-auto mb-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'; this.onerror=null;" />
+                        <div class="absolute -top-2 -right-2 bg-accent text-primary rounded-full p-1">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-inter font-semibold text-text-primary mb-2">Alex Chen</h3>
+                    <p class="text-accent text-sm font-medium mb-3">Top Contributor</p>
+                    <p class="text-text-secondary text-sm mb-4">Specializes in indie films and international cinema. Known for thoughtful, detailed reviews.</p>
+                    <div class="flex justify-center space-x-4 text-sm text-text-secondary mb-4">
+                        <span>1,247 Reviews</span>
+                        <span>•</span>
+                        <span>98% Helpful</span>
+                    </div>
+                    <a href="profile_pages.html" class="btn-primary text-sm px-4 py-2">
+                        View Profile
+                    </a>
+                </div>
+
+                <!-- Featured Reviewer 2 -->
+                <div class="card-elevation hover-dramatic p-6 text-center">
+                    <div class="relative mb-6">
+                        <img src="https://images.pixabay.com/photo-2016/11/21/12/42/beard-1845166_1280.jpg" alt="Marcus Johnson" class="w-20 h-20 rounded-full object-cover mx-auto mb-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'; this.onerror=null;" />
+                        <div class="absolute -top-2 -right-2 bg-accent text-primary rounded-full p-1">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-inter font-semibold text-text-primary mb-2">Marcus Johnson</h3>
+                    <p class="text-accent text-sm font-medium mb-3">Film Critic</p>
+                    <p class="text-text-secondary text-sm mb-4">Horror and thriller expert with a passion for analyzing cinematography and sound design.</p>
+                    <div class="flex justify-center space-x-4 text-sm text-text-secondary mb-4">
+                        <span>892 Reviews</span>
+                        <span>•</span>
+                        <span>96% Helpful</span>
+                    </div>
+                    <a href="profile_pages.html" class="btn-primary text-sm px-4 py-2">
+                        View Profile
+                    </a>
+                </div>
+
+                <!-- Featured Reviewer 3 -->
+                <div class="card-elevation hover-dramatic p-6 text-center">
+                    <div class="relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop" alt="Sarah Williams" class="w-20 h-20 rounded-full object-cover mx-auto mb-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'; this.onerror=null;" />
+                        <div class="absolute -top-2 -right-2 bg-accent text-primary rounded-full p-1">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-inter font-semibold text-text-primary mb-2">Sarah Williams</h3>
+                    <p class="text-accent text-sm font-medium mb-3">Rising Star</p>
+                    <p class="text-text-secondary text-sm mb-4">Documentary enthusiast and social impact film advocate. Brings fresh perspectives to reviews.</p>
+                    <div class="flex justify-center space-x-4 text-sm text-text-secondary mb-4">
+                        <span>456 Reviews</span>
+                        <span>•</span>
+                        <span>94% Helpful</span>
+                    </div>
+                    <a href="profile_pages.html" class="btn-primary text-sm px-4 py-2">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Discussions -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-12">
+                <h2 class="text-3xl font-playfair font-bold text-text-primary">Trending Discussions</h2>
+                <button class="text-accent hover:text-accent/80 font-inter font-medium transition-colors duration-200">
+                    Start New Discussion
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Discussion Thread 1 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-start space-x-4">
+                        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=80&auto=format&fit=crop" alt="The Midnight Hour" class="w-16 h-24 rounded object-cover flex-shrink-0" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=80&h=120&dpr=1'; this.onerror=null;" />
+                        <div class="flex-1">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2">Is "The Midnight Hour" the best thriller of 2024?</h3>
+                            <p class="text-text-secondary text-sm mb-3">The cinematography and plot twists have everyone talking. What did you think of the ending?</p>
+                            <div class="flex items-center justify-between text-sm text-text-secondary">
+                                <div class="flex items-center space-x-4">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                        247 replies
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                        89 likes
+                                    </span>
+                                </div>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussion Thread 2 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-start space-x-4">
+                        <img src="https://images.pixabay.com/photo-2019/04/24/21/55/cinema-4153289_1280.jpg" alt="Neon Dreams" class="w-16 h-24 rounded object-cover flex-shrink-0" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=80&h=120&dpr=1'; this.onerror=null;" />
+                        <div class="flex-1">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2">Underrated gems you discovered this month</h3>
+                            <p class="text-text-secondary text-sm mb-3">Share those hidden treasures that deserve more recognition. Let's spotlight indie films!</p>
+                            <div class="flex items-center justify-between text-sm text-text-secondary">
+                                <div class="flex items-center space-x-4">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                        156 replies
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                        67 likes
+                                    </span>
+                                </div>
+                                <span>5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussion Thread 3 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-24 bg-accent rounded flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2">Oscar predictions for 2025 - Your thoughts?</h3>
+                            <p class="text-text-secondary text-sm mb-3">Awards season is heating up! Which films do you think will dominate the nominations?</p>
+                            <div class="flex items-center justify-between text-sm text-text-secondary">
+                                <div class="flex items-center space-x-4">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                        324 replies
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                        142 likes
+                                    </span>
+                                </div>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussion Thread 4 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-24 bg-gradient-to-br from-accent to-accent/70 rounded flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-inter font-semibold text-text-primary mb-2">Best movie soundtracks that elevated the film</h3>
+                            <p class="text-text-secondary text-sm mb-3">Music can make or break a movie. What are your favorite soundtracks that enhanced the storytelling?</p>
+                            <div class="flex items-center justify-between text-sm text-text-secondary">
+                                <div class="flex items-center space-x-4">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                        198 replies
+                                    </span>
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                        76 likes
+                                    </span>
+                                </div>
+                                <span>3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Challenges & Leaderboards -->
+    <section class="py-16 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Community Challenges -->
+                <div>
+                    <h2 class="text-3xl font-playfair font-bold text-text-primary mb-8">Active Challenges</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Challenge 1 -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-inter font-semibold text-text-primary">October Horror Marathon</h3>
+                                <span class="bg-accent text-primary text-xs font-medium px-2 py-1 rounded">Active</span>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-4">Watch and review 31 horror films this October. Share your spine-chilling experiences!</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-text-secondary">
+                                    <span class="text-accent font-medium">1,247</span> participants
+                                </div>
+                                <div class="text-sm text-text-secondary">
+                                    Ends in <span class="text-accent font-medium">29 days</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn-primary text-sm px-4 py-2 w-full">
+                                    Join Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge 2 -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-inter font-semibold text-text-primary">International Cinema Week</h3>
+                                <span class="bg-warning text-primary text-xs font-medium px-2 py-1 rounded">Ending Soon</span>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-4">Explore films from different countries and cultures. Broaden your cinematic horizons!</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-text-secondary">
+                                    <span class="text-accent font-medium">892</span> participants
+                                </div>
+                                <div class="text-sm text-text-secondary">
+                                    Ends in <span class="text-warning font-medium">3 days</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn-primary text-sm px-4 py-2 w-full">
+                                    Join Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge 3 -->
+                        <div class="card-elevation hover-dramatic p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-inter font-semibold text-text-primary">Underrated Gems Hunt</h3>
+                                <span class="bg-success text-primary text-xs font-medium px-2 py-1 rounded">New</span>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-4">Discover and review films with less than 1000 reviews. Help hidden treasures shine!</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-text-secondary">
+                                    <span class="text-accent font-medium">456</span> participants
+                                </div>
+                                <div class="text-sm text-text-secondary">
+                                    Ends in <span class="text-accent font-medium">45 days</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn-primary text-sm px-4 py-2 w-full">
+                                    Join Challenge
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboards -->
+                <div>
+                    <h2 class="text-3xl font-playfair font-bold text-text-primary mb-8">Community Leaderboards</h2>
+                    
+                    <!-- Top Reviewers -->
+                    <div class="card-elevation p-6 mb-8">
+                        <h3 class="font-inter font-semibold text-text-primary mb-6">Top Reviewers This Month</h3>
+                        <div class="space-y-4">
+                            <!-- Rank 1 -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary font-bold text-sm">1</div>
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=40&auto=format&fit=crop" alt="Alex Chen" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                    <span class="font-inter font-medium text-text-primary">Alex Chen</span>
+                                </div>
+                                <span class="text-accent font-medium">47 reviews</span>
+                            </div>
+
+                            <!-- Rank 2 -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-text-secondary rounded-full flex items-center justify-center text-background font-bold text-sm">2</div>
+                                    <img src="https://images.pixabay.com/photo-2016/11/21/12/42/beard-1845166_1280.jpg" alt="Marcus Johnson" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                    <span class="font-inter font-medium text-text-primary">Marcus Johnson</span>
+                                </div>
+                                <span class="text-accent font-medium">42 reviews</span>
+                            </div>
+
+                            <!-- Rank 3 -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-warning rounded-full flex items-center justify-center text-primary font-bold text-sm">3</div>
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=40&auto=format&fit=crop" alt="Sarah Williams" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                    <span class="font-inter font-medium text-text-primary">Sarah Williams</span>
+                                </div>
+                                <span class="text-accent font-medium">38 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Most Helpful Members -->
+                    <div class="card-elevation p-6">
+                        <h3 class="font-inter font-semibold text-text-primary mb-6">Most Helpful Members</h3>
+                        <div class="space-y-4">
+                            <!-- Rank 1 -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-primary font-bold text-sm">1</div>
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=40&auto=format&fit=crop" alt="David Kim" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                    <span class="font-inter font-medium text-text-primary">David Kim</span>
+                                </div>
+                                <span class="text-accent font-medium">98% helpful</span>
+                            </div>
+
+                            <!-- Rank 2 -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-text-secondary rounded-full flex items-center justify-center text-background font-bold text-sm">2</div>
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=40&auto=format&fit=crop" alt="Emma Rodriguez" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                    <span class="font-inter font-medium text-text-primary">Emma Rodriguez</span>
+                                </div>
+                                <span class="text-accent font-medium">97% helpful</span>
+                            </div>
+
+                            <!-- Rank 3 -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-warning rounded-full flex items-center justify-center text-primary font-bold text-sm">3</div>
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=40&auto=format&fit=crop" alt="James Wilson" class="w-8 h-8 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1'; this.onerror=null;" />
+                                    <span class="font-inter font-medium text-text-primary">James Wilson</span>
+                                </div>
+                                <span class="text-accent font-medium">96% helpful</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Poll -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold text-text-primary mb-4">Community Poll</h2>
+                <p class="text-text-secondary text-lg">Help us understand what the community wants to see more of</p>
+            </div>
+
+            <div class="card-elevation p-8">
+                <h3 class="font-inter font-semibold text-text-primary mb-6 text-center">What type of content would you like to see more of on CineVault?</h3>
+                
+                <div class="space-y-4 mb-8">
+                    <!-- Poll Option 1 -->
+                    <div class="relative">
+                        <input type="radio" id="poll1" name="poll" class="sr-only" />
+                        <label for="poll1" class="flex items-center justify-between p-4 border border-subtle rounded-lg cursor-pointer hover:border-accent transition-colors duration-200">
+                            <span class="text-text-primary">In-depth film analysis and reviews</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-secondary rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                                <span class="text-accent font-medium text-sm">45%</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Poll Option 2 -->
+                    <div class="relative">
+                        <input type="radio" id="poll2" name="poll" class="sr-only" />
+                        <label for="poll2" class="flex items-center justify-between p-4 border border-subtle rounded-lg cursor-pointer hover:border-accent transition-colors duration-200">
+                            <span class="text-text-primary">Behind-the-scenes content and interviews</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-secondary rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 28%"></div>
+                                </div>
+                                <span class="text-accent font-medium text-sm">28%</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Poll Option 3 -->
+                    <div class="relative">
+                        <input type="radio" id="poll3" name="poll" class="sr-only" />
+                        <label for="poll3" class="flex items-center justify-between p-4 border border-subtle rounded-lg cursor-pointer hover:border-accent transition-colors duration-200">
+                            <span class="text-text-primary">Movie recommendation lists and guides</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-secondary rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 18%"></div>
+                                </div>
+                                <span class="text-accent font-medium text-sm">18%</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Poll Option 4 -->
+                    <div class="relative">
+                        <input type="radio" id="poll4" name="poll" class="sr-only" />
+                        <label for="poll4" class="flex items-center justify-between p-4 border border-subtle rounded-lg cursor-pointer hover:border-accent transition-colors duration-200">
+                            <span class="text-text-primary">Community events and watch parties</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-secondary rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 9%"></div>
+                                </div>
+                                <span class="text-accent font-medium text-sm">9%</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn-primary px-8 py-3">
+                        Submit Vote
+                    </button>
+                    <p class="text-text-secondary text-sm mt-4">2,847 votes cast • Poll ends in 5 days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Events Calendar -->
+    <section class="py-16 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold text-text-primary mb-4">Upcoming Community Events</h2>
+                <p class="text-text-secondary text-lg">Join fellow movie enthusiasts for virtual watch parties and discussions</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-accent text-primary text-xs font-medium px-2 py-1 rounded">Virtual Watch Party</span>
+                        <span class="text-text-secondary text-sm">Oct 15, 2024</span>
+                    </div>
+                    <h3 class="font-inter font-semibold text-text-primary mb-3">Horror Movie Marathon Night</h3>
+                    <p class="text-text-secondary text-sm mb-4">Join us for a spine-chilling evening of classic horror films. Popcorn and screams guaranteed!</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-accent font-medium">8:00 PM EST</span>
+                        <span class="text-text-secondary text-sm">247 attending</span>
+                    </div>
+                    <button class="btn-primary text-sm px-4 py-2 w-full">
+                        Join Event
+                    </button>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-success text-primary text-xs font-medium px-2 py-1 rounded">Discussion Panel</span>
+                        <span class="text-text-secondary text-sm">Oct 18, 2024</span>
+                    </div>
+                    <h3 class="font-inter font-semibold text-text-primary mb-3">The Art of Cinematography</h3>
+                    <p class="text-text-secondary text-sm mb-4">Expert panel discussion on visual storytelling techniques with renowned cinematographers.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-accent font-medium">7:00 PM EST</span>
+                        <span class="text-text-secondary text-sm">156 attending</span>
+                    </div>
+                    <button class="btn-primary text-sm px-4 py-2 w-full">
+                        Join Event
+                    </button>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="card-elevation hover-dramatic p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-warning text-primary text-xs font-medium px-2 py-1 rounded">Film Festival</span>
+                        <span class="text-text-secondary text-sm">Oct 22, 2024</span>
+                    </div>
+                    <h3 class="font-inter font-semibold text-text-primary mb-3">Indie Film Showcase</h3>
+                    <p class="text-text-secondary text-sm mb-4">Discover emerging filmmakers and hidden gems in our curated indie film festival.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-accent font-medium">6:00 PM EST</span>
+                        <span class="text-text-secondary text-sm">89 attending</span>
+                    </div>
+                    <button class="btn-primary text-sm px-4 py-2 w-full">
+                        Join Event
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-12 border-t border-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                        </svg>
+                        <span class="text-xl font-inter font-bold text-accent">CineVault</span>
+                    </div>
+                    <p class="text-text-secondary mb-4 max-w-md">
+                        Where movie passion meets authentic community wisdom. Discover, review, and connect through the films you love.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-inter font-semibold text-text-primary mb-4">Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="browse.html" class="text-text-secondary hover:text-accent transition-colors duration-200">Browse Movies</a></li>
+                        <li><a href="community_hub.html" class="text-text-secondary hover:text-accent transition-colors duration-200">Community</a></li>
+                        <li><a href="user_dashboard.html" class="text-text-secondary hover:text-accent transition-colors duration-200">My Dashboard</a></li>
+                        <li><a href="profile_pages.html" class="text-text-secondary hover:text-accent transition-colors duration-200">My Profile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-inter font-semibold text-text-primary mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Community Guidelines</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-text-secondary hover:text-accent transition-colors duration-200">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-subtle mt-8 pt-8 text-center">
+                <p class="text-text-secondary">© 2025 CineVault. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive poll functionality
+        document.querySelectorAll('input[name="poll"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove active state from all labels
+                document.querySelectorAll('label[for^="poll"]').forEach(label => {
+                    label.classList.remove('border-accent', 'bg-surface');
+                });
+                
+                // Add active state to selected label
+                const selectedLabel = document.querySelector(`label[for="${this.id}"]`);
+                selectedLabel.classList.add('border-accent', 'bg-surface');
+            });
+        });
+
+        // Challenge join functionality
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            if (button.textContent.includes('Join Challenge') || button.textContent.includes('Join Event')) {
+                button.addEventListener('click', function() {
+                    const originalText = this.textContent;
+                    this.textContent = 'Joined!';
+                    this.classList.add('bg-success');
+                    this.classList.remove('bg-accent');
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('bg-success');
+                        this.classList.add('bg-accent');
+                    }, 2000);
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card-elevation').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Dynamic leaderboard updates
+        function updateLeaderboard() {
+            const leaderboardItems = document.querySelectorAll('.space-y-4 > div');
+            leaderboardItems.forEach(item => {
+                const reviewCount = item.querySelector('.text-accent');
+                if (reviewCount && reviewCount.textContent.includes('reviews')) {
+                    // Simulate real-time updates
+                    const currentCount = parseInt(reviewCount.textContent);
+                    if (Math.random() > 0.95) { // 5% chance of update
+                        reviewCount.textContent = `${currentCount + 1} reviews`;
+                    }
+                }
+            });
+        }
+
+        // Update leaderboard every 30 seconds
+        setInterval(updateLeaderboard, 30000);
+
+        // Search functionality
+        const searchInput = document.querySelector('input[placeholder*="community"]');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const discussions = document.querySelectorAll('.card-elevation');
+                
+                discussions.forEach(discussion => {
+                    const title = discussion.querySelector('h3');
+                    const content = discussion.querySelector('p');
+                    
+                    if (title && content) {
+                        const titleText = title.textContent.toLowerCase();
+                        const contentText = content.textContent.toLowerCase();
+                        
+                        if (titleText.includes(searchTerm) || contentText.includes(searchTerm)) {
+                            discussion.style.display = 'block';
+                        } else {
+                            discussion.style.display = searchTerm ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

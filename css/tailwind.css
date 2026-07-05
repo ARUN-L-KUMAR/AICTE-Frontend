@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1A1A1A; /* cinema-dark */
+  --color-secondary: #2D2D2D; /* content-separator */
+  --color-accent: #D4AF37; /* golden-highlights */
+  
+  /* Background Colors */
+  --color-background: #0F0F0F; /* deep-canvas */
+  --color-surface: #252525; /* card-backgrounds */
+  
+  /* Text Colors */
+  --color-text-primary: #FFFFFF; /* clear-readability */
+  --color-text-secondary: #B8B8B8; /* hierarchy-text */
+  
+  /* Status Colors */
+  --color-success: #4CAF50; /* green-500 */
+  --color-warning: #FF9800; /* orange-500 */
+  --color-error: #F44336; /* red-500 */
+  
+  /* Border Colors */
+  --color-border-light: rgba(255, 255, 255, 0.1); /* subtle-borders */
+  
+  /* Shadow Colors */
+  --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.3); /* theater-lighting */
+  --shadow-dramatic: 0 8px 32px rgba(0, 0, 0, 0.5); /* hero-elements */
+}
+
+@layer base {
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary font-inter font-medium px-6 py-3 rounded-lg transition-all duration-300 ease-out hover:bg-opacity-90 hover:shadow-elevation;
+  }
+  
+  .card-elevation {
+    @apply bg-surface rounded-lg shadow-elevation transition-all duration-300 ease-out;
+  }
+  
+  .text-hierarchy {
+    @apply text-text-secondary;
+  }
+  
+  .border-subtle {
+    border: 1px solid var(--color-border-light);
+  }
+  
+  .hover-dramatic {
+    @apply transition-all duration-300 ease-out hover:shadow-dramatic;
+  }
+  
+  .micro-interaction {
+    @apply transition-all duration-200 ease-out;
+  }
+}
+
+@layer utilities {
+  .shadow-elevation {
+    box-shadow: var(--shadow-elevation);
+  }
+  
+  .shadow-dramatic {
+    box-shadow: var(--shadow-dramatic);
+  }
+  
+  .text-cinema-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  
+  .text-cta {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+}
