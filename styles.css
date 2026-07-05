@@ -1,4 +1,15 @@
 /* Reset and Base Styles */
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary: #475569;
+    --secondary-hover: #334155;
+    --success: #10b981;
+    --bg-main: #0f172a;
+    --border-light: #e2e8f0;
+    --bg-light: #f8fafc;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +18,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: var(--bg-main);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -52,25 +63,27 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #4CAF50, #45a049);
+    background-color: var(--primary);
     color: white;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
 .btn-primary:hover {
+    background-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
 }
 
 .btn-secondary {
-    background: linear-gradient(45deg, #2196F3, #1976D2);
+    background-color: var(--secondary);
     color: white;
-    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+    box-shadow: 0 4px 15px rgba(71, 85, 105, 0.3);
 }
 
 .btn-secondary:hover {
+    background-color: var(--secondary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+    box-shadow: 0 6px 20px rgba(71, 85, 105, 0.4);
 }
 
 /* Start Screen */
@@ -187,7 +200,7 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(45deg, #4CAF50, #45a049);
+    background-color: var(--success);
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -444,10 +457,11 @@ body {
 }
 
 .stat-item {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 25px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-light);
+    padding: 24px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .stat-number {
@@ -577,7 +591,7 @@ body {
 .option:focus,
 .btn:focus,
 select:focus {
-    outline: 3px solid #4CAF50;
+    outline: 3px solid var(--primary);
     outline-offset: 2px;
 }
 
