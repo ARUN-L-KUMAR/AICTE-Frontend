@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AICTE Frontend Web Development Projects Portfolio showcasing CineHub, Movie Review Platform, Online Quiz, and Smart Study Planner.">
+    <meta name="description"
+        content="AICTE Frontend Web Development Projects Portfolio showcasing CineHub, Movie Review Platform, Online Quiz, and Smart Study Planner.">
     <title>AICTE Frontend Projects Portfolio</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
-            --bg-color: #08090c;
-            --card-bg: rgba(18, 20, 29, 0.6);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-primary: #f3f4f6;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --card-border: #1f2937;
+            --card-border-hover: #3b82f6;
+            --text-primary: #f9fafb;
             --text-secondary: #9ca3af;
-            --glow-color: rgba(99, 102, 241, 0.15);
+            --primary-accent: #2563eb;
+            --primary-accent-hover: #1d4ed8;
+            --badge-bg: rgba(245, 158, 11, 0.08);
+            --badge-border: rgba(245, 158, 11, 0.15);
+            --badge-text: #fbbf24;
+            --btn-bg: #ffffff;
+            --btn-bg-hover: #1e293b;
+            --btn-text: #090d16;
         }
 
         * {
@@ -32,56 +47,26 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            position: relative;
-        }
-
-        /* Animated decorative gradient blobs */
-        body::before, body::after {
-            content: '';
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        body::before {
-            top: -10%;
-            left: -5%;
-            background: radial-gradient(circle, #f59e0b, #ef4444);
-        }
-
-        body::after {
-            bottom: 10%;
-            right: -5%;
-            background: radial-gradient(circle, #6366f1, #3b82f6);
         }
 
         header {
             text-align: center;
             padding: 60px 20px 40px;
-            z-index: 10;
         }
 
         h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #ffffff;
             margin-bottom: 15px;
         }
 
         .tagline {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
@@ -93,20 +78,19 @@
             width: 100%;
             margin: 0 auto;
             padding: 0 30px 80px;
-            z-index: 10;
             flex-grow: 1;
         }
 
         .section-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 25px;
             color: #e5e7eb;
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #1f2937;
             padding-bottom: 10px;
         }
 
@@ -122,8 +106,9 @@
             .project-grid {
                 grid-template-columns: 1fr;
             }
+
             h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
         }
 
@@ -131,80 +116,67 @@
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 35px;
+            border-radius: 12px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(12px);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
-            pointer-events: none;
+            transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 40px var(--glow-color);
-        }
-
-        /* Top highlight bar on hover */
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent-gradient);
-            opacity: 0.8;
+            transform: translateY(-4px);
+            border-color: var(--card-border-hover);
         }
 
         .card-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .icon-wrapper {
-            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: 8px;
+            color: #fbbf24;
+        }
+
+        .icon-wrapper i {
+            width: 24px;
+            height: 24px;
+            stroke-width: 2;
+        }
+
+        .section-title i {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-primary);
+            stroke-width: 2;
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--badge-text);
             padding: 4px 12px;
-            border-radius: 50px;
+            border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        .project-card.featured .badge {
-            background: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.2);
-            color: #f59e0b;
-        }
-
         .project-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-size: 1.45rem;
+            font-weight: 600;
             color: #ffffff;
             margin-bottom: 10px;
             line-height: 1.2;
@@ -213,7 +185,7 @@
         .project-description {
             color: var(--text-secondary);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.5;
             margin-bottom: 25px;
             flex-grow: 1;
         }
@@ -222,13 +194,13 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .tech-tag {
             font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #1f2937;
+            border: 1px solid #374151;
             padding: 4px 10px;
             border-radius: 6px;
             color: #d1d5db;
@@ -239,29 +211,29 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: var(--accent-gradient);
-            color: #ffffff;
+            background: var(--btn-bg);
+            color: var(--btn-text);
             text-decoration: none;
             padding: 12px 24px;
-            border-radius: 12px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: none;
+            transition: all 0.2s ease;
+            border: 1px solid var(--btn-bg);
             cursor: pointer;
             width: 100%;
         }
 
         .btn-launch:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 4px 20px var(--glow-color);
+            background: var(--btn-bg-hover);
+            color: #ffffff;
+            border-color: #3b82f6;
         }
 
         .btn-launch svg {
             width: 16px;
             height: 16px;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
             fill: currentColor;
         }
 
@@ -269,40 +241,18 @@
             transform: translateX(4px);
         }
 
-        /* Specific card details */
-        .card-cinehub {
-            --accent-gradient: linear-gradient(135deg, #fbbf24, #d97706);
-            --glow-color: rgba(251, 191, 36, 0.15);
-        }
-
-        .card-movie-review {
-            --accent-gradient: linear-gradient(135deg, #ef4444, #b91c1c);
-            --glow-color: rgba(239, 68, 68, 0.15);
-        }
-
-        .card-quiz {
-            --accent-gradient: linear-gradient(135deg, #10b981, #047857);
-            --glow-color: rgba(16, 185, 129, 0.15);
-        }
-
-        .card-planner {
-            --accent-gradient: linear-gradient(135deg, #6366f1, #4338ca);
-            --glow-color: rgba(99, 102, 241, 0.15);
-        }
-
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 35px 20px;
             color: var(--text-secondary);
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(10, 11, 16, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 10;
+            border-top: 1px solid #1f2937;
+            background: #0b0f19;
+            margin-top: auto;
         }
 
         footer a {
-            color: #a5b4fc;
+            color: var(--badge-text);
             text-decoration: none;
             transition: color 0.2s ease;
         }
@@ -313,49 +263,30 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1 id="main-header">AICTE Frontend Project Hub</h1>
-        <p class="tagline">A curated collection of web applications developed under the AICTE Frontend Web Development course.</p>
+        <p class="tagline">A curated collection of web applications developed under the AICTE Frontend Web Development
+            course.</p>
     </header>
 
     <main>
         <!-- Primary Projects Section -->
-        <h2 class="section-title">🎬 Movie Applications</h2>
+        <h2 class="section-title"><i data-lucide="film"></i> Movie Applications</h2>
         <div class="project-grid">
-            
-            <!-- CineHub Card -->
-            <article class="project-card card-cinehub featured" id="card-cinehub">
-                <div>
-                    <div class="card-header">
-                        <span class="icon-wrapper">🚀</span>
-                        <span class="badge">Featured Main Project</span>
-                    </div>
-                    <h3 class="project-title">CineHub</h3>
-                    <p class="project-description">A modern Tailwind CSS movie platform with comprehensive styling, customized cinema themes, and enhanced search interfaces.</p>
-                    <div class="tech-badges">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                        <span class="tech-tag">JavaScript ES6+</span>
-                        <span class="tech-tag">OMDb API</span>
-                    </div>
-                </div>
-                <a href="./CineHub/index.html" class="btn-launch" id="btn-launch-cinehub">
-                    Launch CineHub
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-            </article>
 
             <!-- Movie Review Platform Card -->
             <article class="project-card card-movie-review" id="card-movie-review">
                 <div>
                     <div class="card-header">
-                        <span class="icon-wrapper">🎥</span>
+                        <div class="icon-wrapper"><i data-lucide="video"></i></div>
                         <span class="badge">Main Project (Classic)</span>
                     </div>
-                    <h3 class="project-title">Movie-Review-Platform</h3>
-                    <p class="project-description">A responsive, vanilla-designed movie discovery and review platform featuring user profiles, badge statistics, and star reviews.</p>
+                    <h3 class="project-title">Movie Review Platform</h3>
+                    <p class="project-description">A responsive, vanilla-designed movie discovery and review platform
+                        featuring user profiles, badge statistics, and star reviews.</p>
                     <div class="tech-badges">
                         <span class="tech-tag">HTML5</span>
                         <span class="tech-tag">CSS3 (Glassmorphic)</span>
@@ -365,25 +296,56 @@
                 </div>
                 <a href="./Movie-Review-Platform/index.html" class="btn-launch" id="btn-launch-movie-review">
                     Launch Platform
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </article>
+
+
+            <!-- CineHub Card -->
+            <article class="project-card card-cinehub featured" id="card-cinehub">
+                <div>
+                    <div class="card-header">
+                        <div class="icon-wrapper"><i data-lucide="rocket"></i></div>
+                        <span class="badge">Featured Main Project</span>
+                    </div>
+                    <h3 class="project-title">CineHub</h3>
+                    <p class="project-description">A modern Tailwind CSS movie platform with comprehensive styling,
+                        customized cinema themes, and enhanced search interfaces.</p>
+                    <div class="tech-badges">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">JavaScript ES6+</span>
+                        <span class="tech-tag">OMDb API</span>
+                    </div>
+                </div>
+                <a href="./CineHub/index.html" class="btn-launch" id="btn-launch-cinehub">
+                    Launch CineHub
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
                 </a>
             </article>
 
         </div>
 
         <!-- Optional/Alternative Projects Section -->
-        <h2 class="section-title">💡 Interactive Web Applications</h2>
+        <h2 class="section-title"><i data-lucide="layout"></i> Interactive Web Applications</h2>
         <div class="project-grid">
 
             <!-- Online Quiz Card -->
             <article class="project-card card-quiz" id="card-quiz">
                 <div>
                     <div class="card-header">
-                        <span class="icon-wrapper">🧠</span>
+                        <div class="icon-wrapper"><i data-lucide="brain"></i></div>
                         <span class="badge">Optional</span>
                     </div>
                     <h3 class="project-title">Online Quiz Application</h3>
-                    <p class="project-description">An online quiz platform featuring dynamic category setups, 30-second timers, scoring history, and service-worker capabilities.</p>
+                    <p class="project-description">An online quiz platform featuring dynamic category setups, 30-second
+                        timers, scoring history, and service-worker capabilities.</p>
                     <div class="tech-badges">
                         <span class="tech-tag">HTML5</span>
                         <span class="tech-tag">CSS Grid/Flexbox</span>
@@ -393,7 +355,10 @@
                 </div>
                 <a href="./Online Quiz Application/index.html" class="btn-launch" id="btn-launch-quiz">
                     Launch Quiz App
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
                 </a>
             </article>
 
@@ -401,11 +366,12 @@
             <article class="project-card card-planner" id="card-planner">
                 <div>
                     <div class="card-header">
-                        <span class="icon-wrapper">📚</span>
+                        <div class="icon-wrapper"><i data-lucide="calendar-check"></i></div>
                         <span class="badge">Optional</span>
                     </div>
                     <h3 class="project-title">Smart Study Planner</h3>
-                    <p class="project-description">A multi-view student productivity planner complete with local-storage tasks, study reminders, progress metrics, and a calendar view.</p>
+                    <p class="project-description">A multi-view student productivity planner complete with local-storage
+                        tasks, study reminders, progress metrics, and a calendar view.</p>
                     <div class="tech-badges">
                         <span class="tech-tag">HTML5</span>
                         <span class="tech-tag">CSS Animations</span>
@@ -415,7 +381,10 @@
                 </div>
                 <a href="./Smart Study Planner/index.html" class="btn-launch" id="btn-launch-planner">
                     Launch Planner
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
                 </a>
             </article>
 
@@ -423,8 +392,14 @@
     </main>
 
     <footer>
-        <p>© 2026 AICTE-Edunet Coursework. Developed by <a href="https://github.com/ARUN-L-KUMAR" target="_blank" rel="noopener noreferrer">ARUN L KUMAR</a>.</p>
+        <p>© 2026 AICTE-Edunet Coursework. Developed by <a href="https://github.com/ARUN-L-KUMAR" target="_blank"
+                rel="noopener noreferrer">ARUN L KUMAR</a>.</p>
     </footer>
 
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>
