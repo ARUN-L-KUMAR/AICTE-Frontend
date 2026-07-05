@@ -998,14 +998,8 @@ function createCustomPoster(title) {
     
     const ctx = canvas.getContext('2d');
     
-    // Create gradient background
-    const gradient = ctx.createLinearGradient(0, 0, 0, 450);
-    const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe'];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    
-    gradient.addColorStop(0, randomColor);
-    gradient.addColorStop(1, '#2c3e50');
-    ctx.fillStyle = gradient;
+    // Create solid background
+    ctx.fillStyle = '#1e293b';
     ctx.fillRect(0, 0, 300, 450);
     
     // Add film strip border
@@ -1743,11 +1737,8 @@ function createDataURI(text, bgColor = '#2c3e50') {
     canvas.height = 450;
     const ctx = canvas.getContext('2d');
     
-    // Create gradient background
-    const gradient = ctx.createLinearGradient(0, 0, 0, 450);
-    gradient.addColorStop(0, bgColor);
-    gradient.addColorStop(1, '#1a252f');
-    ctx.fillStyle = gradient;
+    // Create solid background
+    ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, 300, 450);
     
     // Add film strip effect at top and bottom
@@ -3960,7 +3951,7 @@ function displayFavorites() {
         removeButton.className = 'remove-button';
         removeButton.setAttribute('data-imdbid', movie.imdbID);
         removeButton.innerHTML = '<i class="fas fa-heart-broken"></i> Remove';
-        removeButton.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a5a)';
+        removeButton.style.background = 'var(--primary)';
         removeButton.style.flex = '1';
         removeButton.style.border = 'none';
         removeButton.style.color = 'white';
@@ -4078,7 +4069,7 @@ function displayWatchlist() {
         removeButton.className = 'remove-button';
         removeButton.setAttribute('data-imdbid', movie.imdbID);
         removeButton.innerHTML = '<i class="fas fa-bookmark-slash"></i> Remove';
-        removeButton.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a5a)';
+        removeButton.style.background = 'var(--primary)';
         removeButton.style.flex = '1';
         removeButton.style.border = 'none';
         removeButton.style.color = 'white';
