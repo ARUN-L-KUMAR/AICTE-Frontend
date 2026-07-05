@@ -1,0 +1,109 @@
+{
+  "questions": [
+    {
+      "question": "What is the capital of France?",
+      "correct": "Paris",
+      "incorrect": ["London", "Berlin", "Madrid"],
+      "category": "Geography",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "correct": "Mars",
+      "incorrect": ["Venus", "Jupiter", "Saturn"],
+      "category": "Science",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "correct": "Leonardo da Vinci",
+      "incorrect": ["Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
+      "category": "Art",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the largest mammal in the world?",
+      "correct": "Blue Whale",
+      "incorrect": ["African Elephant", "Giraffe", "Hippopotamus"],
+      "category": "Nature",
+      "difficulty": "easy"
+    },
+    {
+      "question": "In which year did World War II end?",
+      "correct": "1945",
+      "incorrect": ["1944", "1946", "1943"],
+      "category": "History",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "correct": "Au",
+      "incorrect": ["Go", "Gd", "Ag"],
+      "category": "Science",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which programming language is known as the 'language of the web'?",
+      "correct": "JavaScript",
+      "incorrect": ["Python", "Java", "C++"],
+      "category": "Technology",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the smallest country in the world?",
+      "correct": "Vatican City",
+      "incorrect": ["Monaco", "San Marino", "Liechtenstein"],
+      "category": "Geography",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "correct": "William Shakespeare",
+      "incorrect": ["Charles Dickens", "Jane Austen", "Mark Twain"],
+      "category": "Literature",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the hardest natural substance on Earth?",
+      "correct": "Diamond",
+      "incorrect": ["Quartz", "Steel", "Iron"],
+      "category": "Science",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which ocean is the largest?",
+      "correct": "Pacific Ocean",
+      "incorrect": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+      "category": "Geography",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the speed of light in vacuum?",
+      "correct": "299,792,458 m/s",
+      "incorrect": ["300,000,000 m/s", "299,000,000 m/s", "298,792,458 m/s"],
+      "category": "Physics",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Who developed the theory of relativity?",
+      "correct": "Albert Einstein",
+      "incorrect": ["Isaac Newton", "Galileo Galilei", "Stephen Hawking"],
+      "category": "Science",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the largest planet in our solar system?",
+      "correct": "Jupiter",
+      "incorrect": ["Saturn", "Earth", "Neptune"],
+      "category": "Astronomy",
+      "difficulty": "easy"
+    },
+    {
+      "question": "In what year was the World Wide Web invented?",
+      "correct": "1989",
+      "incorrect": ["1985", "1991", "1993"],
+      "category": "Technology",
+      "difficulty": "medium"
+    }
+  ]
+}
