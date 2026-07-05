@@ -1,92 +1,82 @@
-# 🎬 CineHub - Movie Review Platform
+# HTML
 
-A modern movie discovery and review platform with community features and personalized profiles.
+A modern HTML project utilizing Tailwind CSS for building responsive web applications with minimal setup.
 
-## 🌟 Features
+## 🚀 Features
 
-- **Movie Search** - Real-time search with OMDB API integration
-- **Review System** - Rate and review movies with 5-star ratings
-- **User Profiles** - Personal profiles with statistics and avatars
-- **Dark/Light Mode** - Complete theme system with smooth transitions
-- **Community** - Browse and interact with community reviews
-- **Favorites & Watchlist** - Save and organize your movies
+- **HTML5** - Modern HTML structure with best practices
+- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+- **Custom Components** - Pre-built component classes for buttons and containers
+- **NPM Scripts** - Easy-to-use commands for development and building
+- **Responsive Design** - Mobile-first approach for all screen sizes
 
-## 🚀 Quick Start
+## 📋 Prerequisites
 
-1. **Get API Key**: Visit [OMDB API](http://www.omdbapi.com/apikey.aspx) for free API key
-2. **Configure**: Replace API key in `script.js`
-3. **Launch**: Open `index.html` in your browser
+- Node.js (v12.x or higher)
+- npm or yarn
 
-## � Project Structure
+## 🛠️ Installation
 
-```
-AICTE-Frontend/
-│
-├── index.html          # Main HTML file with complete UI structure
-├── style.css           # Comprehensive CSS (7900+ lines) with dark mode
-├── script.js           # Advanced JavaScript (5700+ lines) with ES6+ features
-├── package.json        # Project dependencies and metadata
-├── LICENSE             # MIT License file
-├── README.md           # Project documentation
-│
-└── docs/
-    └── USER_GUIDE.md   # Detailed user guide and documentation
+1. Install dependencies:
+```bash
+npm install
+# or
+yarn install
 ```
 
-## �🛠 Technology
+2. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **API**: OMDB Movie Database
-- **Storage**: Local Storage for persistence
-- **Design**: Responsive, glassmorphism UI
+## 📁 Project Structure
 
-## 📱 Compatibility
+```
+html_app/
+├── css/
+│   ├── tailwind.css   # Tailwind source file with custom utilities
+│   └── main.css       # Compiled CSS (generated)
+├── pages/             # HTML pages
+├── index.html         # Main entry point
+├── package.json       # Project dependencies and scripts
+└── tailwind.config.js # Tailwind CSS configuration
+```
 
-- Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
-- Mobile responsive design
-- Accessibility compliant (WCAG 2.1 AA)
+## 🎨 Styling
 
-## 🎨 Key Features
+This project uses Tailwind CSS for styling. Custom utility classes include:
 
-### Movie Discovery
-- Advanced search with autocomplete
-- Genre-based collections
-- Movie details with cast info
-- Trending movies section
 
-### Review System
-- Interactive star ratings
-- Written reviews with formatting
-- Review management (CRUD operations)
-- Community review filtering
+## 🧩 Customization
 
-### User Experience
-- Modern profile system with avatars
-- Achievement badges and statistics
-- Complete dark/light theme support
-- Cross-device synchronization
+To customize the Tailwind configuration, edit the `tailwind.config.js` file:
 
-## 💾 Data Storage
 
-All user data (reviews, favorites, profiles) is stored locally using browser Local Storage:
-- Persistent across browser sessions
-- No server required
-- Privacy-focused local storage
+## 📦 Build for Production
 
-## 🤝 Contributing
+Build the CSS for production:
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/new-feature`)
-3. Commit changes (`git commit -am 'Add feature'`)
-4. Push to branch (`git push origin feature/new-feature`)
-5. Create Pull Request
+```bash
+npm run build:css
+# or
+yarn build:css
+```
 
-## 📄 License
+## 📱 Responsive Design
 
-MIT License - see [LICENSE](LICENSE) file for details.
+The app is built with responsive design using Tailwind CSS breakpoints:
+
+- `sm`: 640px and up
+- `md`: 768px and up
+- `lg`: 1024px and up
+- `xl`: 1280px and up
+- `2xl`: 1536px and up
 
 ## 🙏 Acknowledgments
 
-- [OMDB API](http://www.omdbapi.com/) for movie data
-- [Google Fonts](https://fonts.google.com/) for typography
-- Icons and design inspiration from modern web standards
+- Built with [Rocket.new](https://rocket.new)
+- Powered by HTML and Tailwind CSS
+
+Built with ❤️ on Rocket.new

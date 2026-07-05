@@ -4,11 +4,11 @@ Welcome to the **AICTE-Edunet Frontend Web Development Projects** repository. Th
 
 ---
 
-## 🎬 Main Project: CineHub — Movie Review Platform
+## 🎬 Main Project: Movie-Review-Platform
 
-**Folder:** [`/CineHub`](./CineHub)
+**Folder:** [`/Movie-Review-Platform`](./Movie-Review-Platform)
 
-**CineHub** is a premium, feature-rich movie discovery and review platform. It leverages external APIs and local persistence to deliver a seamless, application-like user experience.
+**Movie-Review-Platform** is a premium, feature-rich movie discovery and review platform. It leverages external APIs and local persistence to deliver a seamless, application-like user experience.
 
 ### 🌟 Key Features
 *   **OMDb API Integration:** Real-time search with autocompletion and dynamic movie data fetching.
@@ -27,7 +27,7 @@ Welcome to the **AICTE-Edunet Frontend Web Development Projects** repository. Th
 
 ## 💡 Optional Projects
 
-In addition to the main CineHub application, this repository includes two optional frontend applications demonstrating various concepts in API integration, PWA technologies, and multi-view state management.
+In addition to the main Movie-Review-Platform application, this repository includes two optional frontend applications demonstrating various concepts in API integration, PWA technologies, and multi-view state management.
 
 ### 1. 🧠 Online Quiz Application
 **Folder:** [`/Online Quiz Application`](./Online%20Quiz%20Application)
@@ -57,7 +57,7 @@ A productivity dashboard designed for students to organize tasks, manage schedul
 
 ```text
 AICTE-Frontend/
-├── CineHub/                         # Main Project
+├── Movie-Review-Platform/                         # Main Project
 │   ├── index.html                   # Entry point
 │   ├── style.css                    # Professional dark/light stylesheets
 │   ├── script.js                    # Movie fetch & review logic
@@ -90,9 +90,9 @@ Since these are pure frontend projects, you can run them directly in your browse
     cd AICTE-Frontend
     ```
 2.  **Run any Project:**
-    *   **Directly:** Open the `index.html` file of the desired project folder (e.g., `./CineHub/index.html`) in your browser.
+    *   **Directly:** Open the `index.html` file of the desired project folder (e.g., `./Movie-Review-Platform/index.html`) in your browser.
     *   **Via Local Server (Recommended):** Use a server utility to serve the files (this ensures APIs and service workers behave correctly):
-        *   **Python:** `python -m http.server 8000` (Visit `http://localhost:8000/CineHub`)
+        *   **Python:** `python -m http.server 8000` (Visit `http://localhost:8000/Movie-Review-Platform`)
         *   **Node.js / npm:** `npx serve .`
 
 ---
